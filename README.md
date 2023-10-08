@@ -28,9 +28,9 @@
 |[Контест 2](https://contest.yandex.ru/contest/52676/problems/) |  |
 | --- | :-: |
 | [1. Функция. Простое число](https://github.com/Maxim-2005/CFU_FTI_IVT232-2/blob/8b1acfd9d56a8c6f59d1e547b9fa17ee6f17c0e0/1%20%D0%9A%D1%83%D1%80%D1%81/Contest_02/1.%20%D0%A4%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F.%20%D0%9F%D1%80%D0%BE%D1%81%D1%82%D0%BE%D0%B5%20%D1%87%D0%B8%D1%81%D0%BB%D0%BE/source.cpp) | ![](./img/go.png) |
-| [2. Функция. Выход из лабиринта](./contest_02/02/main.go) |  ![](./img/go.png) |
-| [3. Функция. Сортировка по количеству единиц](./contest_02/03/main.cpp) | ![](./img/go.png) |
-| [3. Функция. Сортировка по количеству единиц](./contest_02/03/main.cpp) | ![](./img/go.png) |
+| [2. Функция. Выход из лабиринта](https://github.com/Maxim-2005/CFU_FTI_IVT232-2/blob/056a3961bada2bfbfce2b888af854a0c08be95a4/1%20%D0%9A%D1%83%D1%80%D1%81/Contest_02/2.%20%D0%A4%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F.%20%D0%92%D1%8B%D1%85%D0%BE%D0%B4%20%D0%B8%D0%B7%20%D0%BB%D0%B0%D0%B1%D0%B8%D1%80%D0%B8%D0%BD%D1%82%D0%B0/source.cpp) |  ![](./img/go.png) |
+| [3. Функция. Сортировка по количеству единиц](https://github.com/Maxim-2005/CFU_FTI_IVT232-2/blob/056a3961bada2bfbfce2b888af854a0c08be95a4/1%20%D0%9A%D1%83%D1%80%D1%81/Contest_02/3.%20%D0%A4%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F.%20%D0%A1%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0%20%D0%BF%D0%BE%20%D0%BA%D0%BE%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D1%82%D0%B2%D1%83%20%D0%B5%D0%B4%D0%B8%D0%BD%D0%B8%D1%86/source.cpp) | ![](./img/go.png) |
+| [4. Функция. Сумма дробей](https://github.com/Maxim-2005/CFU_FTI_IVT232-2/blob/056a3961bada2bfbfce2b888af854a0c08be95a4/1%20%D0%9A%D1%83%D1%80%D1%81/Contest_02/4.%20%D0%A4%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F.%20%D0%A1%D1%83%D0%BC%D0%BC%D0%B0%20%D0%B4%D1%80%D0%BE%D0%B1%D0%B5%D0%B9/source.cpp) | ![](./img/go.png) |
 | [3. Функция. Сортировка по количеству единиц](./contest_02/03/main.cpp) | ![](./img/go.png) |
 | [3. Функция. Сортировка по количеству единиц](./contest_02/03/main.cpp) | ![](./img/go.png) |
 | [3. Функция. Сортировка по количеству единиц](./contest_02/03/main.cpp) | ![](./img/go.png) |
