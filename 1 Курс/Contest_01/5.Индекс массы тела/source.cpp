@@ -1,17 +1,13 @@
-// Подключение библиотек
 #include <iostream>
 #include <cmath>
 
 using namespace std;
 
 int main(){
-    // Объявление переменных
-    double m = 0;
-    double h = 0;
+    double m = 0; // масса
+    double h = 0; // рост
 
-    // Получение значений с консоли
     cin >> m, cin >> h;
 
-    // Расчет + вывод
     cout << m / (h*h);
 }
