@@ -1,4 +1,3 @@
-// Подключение библиотек
 #include <iostream>
 #include <cmath>
 
