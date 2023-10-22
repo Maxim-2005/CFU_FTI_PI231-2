@@ -4,10 +4,10 @@
 using namespace std;
 
 int main(){
-    double m = 0;
-    double h = 0;
-    
+    double m = 0; // масса
+    double h = 0; // рост
+
     cin >> m, cin >> h;
-    
+
     cout << m / (h*h);
 }

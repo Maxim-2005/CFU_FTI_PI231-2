@@ -2,13 +2,12 @@ package main
 import "math"
 import "fmt"
 
-var c, d, t float64
+var c, d, t float64 // литры, дубы, тополя
 
 func main() {
-    
     c = 0.5 * 365
     d = c / 20
     t = c / 32
-    
+
     fmt.Print(c, math.Ceil(t), math.Ceil(d))
 }
