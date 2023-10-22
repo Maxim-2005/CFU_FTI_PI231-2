@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-    int a, b;
+    int a, b; // проверяемые числа
     
     cin >> a;
     cin >> b;

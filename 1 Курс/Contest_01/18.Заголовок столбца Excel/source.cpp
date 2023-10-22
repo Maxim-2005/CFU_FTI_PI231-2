@@ -3,25 +3,20 @@
 
 using namespace std;
 
-string getColumnTitle(int n) {
-    string result = "";
+int main() {
+    int n; // номер столбца
+    string r = ""; // буквы столбца
+
+    cin >> n;
     
+    // подбор букв по номеру
     while (n > 0) {
-        char digit = 'A' + (n - 1) % 26;
-        result = digit + result;
+        char d = 'A' + (n - 1) % 26;
+        r = d + r;
         n = (n - 1) / 26;
     }
     
-    return result;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    
-    string columnTitle = getColumnTitle(n);
-    
-    cout << columnTitle << endl;
+    cout << r << endl;
     
     return 0;
 }

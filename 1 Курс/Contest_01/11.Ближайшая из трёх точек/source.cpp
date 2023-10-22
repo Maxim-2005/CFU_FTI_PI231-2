@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    int a, b, c, dB, dC;
+    int a, b, c, dB, dC; // точка a, точка b, точка c, расстояние от а до b, расстояние от a до с
     
     cin >> a;
     cin >> b;
@@ -13,14 +13,12 @@ int main()
     
     dB = abs(b - a);
     dC = abs(c - a);
-    
+
     if (dB < dC) {
         cout << "B " << dB;
-    }
-    else {
+    } else {
         cout << "C " << dC;
-    }
-    
+    } 
 
     return 0;
 }

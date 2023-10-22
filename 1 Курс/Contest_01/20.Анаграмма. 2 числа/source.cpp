@@ -2,27 +2,16 @@
 #include <algorithm>
 #include <string>
 
-using namespace std;
-
-string sortDigits(const string& num) {
-    string sortedNum = num;
-    sort(sortedNum.begin(), sortedNum.end());
-    return sortedNum;
-}
-
-bool isPermutationPossible(const string& num1, const string& num2) {
-    return sortDigits(num1) == sortDigits(num2);
-}
-
 int main() {
-    string num1, num2;
-    cin >> num1 >> num2;
+    std::string num1, num2; // первое число и второе число
+    std::cin >> num1 >> num2;
     
-    if (isPermutationPossible(num1, num2)) {
-        cout << "YES" << endl;
-    } else {
-        cout << "NO" << endl;
-    }
+    sort(num1.begin(), num1.end());
+    sort(num2.begin(), num2.end());
+    if (num1 == num2) {
+        std::cout << "YES" << std::endl;
+    } else
+        std::cout << "NO" << std::endl;
     
     return 0;
 }

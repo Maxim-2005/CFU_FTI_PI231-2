@@ -2,32 +2,26 @@ package main
 
 import "fmt"
 
-func smoothSequence(n int, sequence []int) []float64 {
- smoothed := make([]float64, n)
- smoothed[0] = float64(sequence[0])
-
- for i := 1; i < n-1; i++ {
-  smoothed[i] = (float64(sequence[i-1]) + float64(sequence[i]) + float64(sequence[i+1])) / 3.0
- }
-
- smoothed[n-1] = float64(sequence[n-1])
-
- return smoothed
-}
-
 func main() {
- var n int
- fmt.Scanln(&n)
+	var n int // длина последовательности
+	fmt.Scanln(&n)
 
- sequence := make([]int, n)
- for i := 0; i < n; i++ {
-  fmt.Scan(&sequence[i])
- }
+	arr := make([]int, n) // результаты измерений
+	for i := 0; i < n; i++ {
+		fmt.Scan(&arr[i])
+	}
 
- smoothed := smoothSequence(n, sequence)
+	s := make([]float64, n) // cглаженная последовательность
+	s[0] = float64(arr[0])
 
- for i := 0; i < n; i++ {
-  fmt.Printf("%.10f ", smoothed[i])
- }
- fmt.Println()
+	for i := 1; i < n-1; i++ {
+		s[i] = (float64(arr[i-1]) + float64(arr[i]) + float64(arr[i+1])) / 3.0
+	}
+
+	s[n-1] = float64(arr[n-1])
+
+	for i := 0; i < n; i++ {
+		fmt.Printf("%.10f ", s[i])
+	}
+	fmt.Println()
 }

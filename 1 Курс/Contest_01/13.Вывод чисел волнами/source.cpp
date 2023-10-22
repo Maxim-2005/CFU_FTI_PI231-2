@@ -1,9 +1,11 @@
 #include <iostream>
 
 int main() {
-    int n, i = 1, w = 3, s = 1, k = 1;
+    int n, i = 1, w = 3, s = 1, k = 1; // кол-во чисел, сами числа, кол-во волн, +\-, амплитуда волны
     std::cin >> n;
     system("cls");
+
+    // Вывод волн
     while (i <= n) {
         for (int j = 0; j < k && i <= n; ++j)
             std::cout << i++ << " ";
@@ -12,9 +14,8 @@ int main() {
         if (k < 1) {
             s = 1;
             k = 2;
-            ++w;
-        }
-        else if (k >= w) {
+            w++;
+        } else if (k >= w) {
             s = -1;
             k -= 2;
         }

@@ -3,33 +3,25 @@
 
 using namespace std;
 
-string compressString(const string& s) {
-    string compressedString = "";
-    
-    int count = 1;
+int main() {
+    string s; // вводная строка
+    string c = ""; // строка вывода
+    int count = 1; // счечик повторений
+
+    getline(cin, s);
+
+    // обход строки и подсчет повторений
     for (int i = 1; i <= s.length(); i++) {
         if (i == s.length() || s[i] != s[i-1]) {
-            compressedString += s[i-1];
+            c += s[i-1];
             if (count > 1) {
-                compressedString += to_string(count);
+                c += to_string(count);
             }
             count = 1;
-        }
-        else {
+        } else
             count++;
-        }
     }
-    
-    return compressedString;
-}
-
-int main() {
-    string inputString;
-    getline(cin, inputString);
-    
-    string compressedString = compressString(inputString);
-    
-    cout << compressedString << endl;
+    cout << c << endl;
     
     return 0;
 }
