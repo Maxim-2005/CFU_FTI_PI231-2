@@ -2,6 +2,7 @@ bool compare(const std::string& a, const std::string& b) {
     int count_a = 0;
     int count_b = 0;
     
+    // счетчики кол-ва едениц
     for (char c : a)
         if (c == '1')
             count_a++;
@@ -10,6 +11,7 @@ bool compare(const std::string& a, const std::string& b) {
         if (c == '1')
             count_b++;
     
+    // сортировка и вывод
     if (count_a > count_b)
         return true;
     else if (count_a < count_b)

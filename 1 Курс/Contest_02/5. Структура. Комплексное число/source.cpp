@@ -38,8 +38,8 @@ Complex make_complex(std::string num) {
 
 }
 
-
-Complex sum(Complex left, Complex right){
+// вычисление суммы комплексных чисел
+Complex sum(Complex left, Complex right) {
     double f = left.re + right.re;
     double s = left.im + right.im;
     if (left.im + right.im == 0){
@@ -47,18 +47,23 @@ Complex sum(Complex left, Complex right){
     }
     return Complex{f,s };
 }
+
+// вычисление разности комплексных чисел
 Complex sub(Complex left, Complex right) {
     return Complex{ left.re - right.re, left.im - right.im };
 }
+
+// умножение комплексных чисел
 Complex mul(Complex left, Complex right) {
     double f = left.re * right.re - left.im * right.im;
     double s = left.re * right.im + left.im * right.re;
     return Complex{f,s };
 }
-Complex div(Complex left, Complex right ) {
 
+Complex div(Complex left, Complex right ) {
     return Complex{(left.re*right.re + left.im*right.im)/(right.re*right.re + right.im*right.im), (left.im*right.re - left.re*right.im)/ (right.re * right.re + right.im * right.im) };
 }
+
 void print(Complex num) {
     double re, im;
     re = num.re;

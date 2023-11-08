@@ -1,8 +1,10 @@
 func fill(maze [][]int) {
-	var n int
+	var n int // кол-во мин
 	for y := 0; y < len(maze); y++ {
 		for x := 0; x < len(maze[y]); x++ {
 			n = 0
+
+			// проверка всех клеточек вокруг
 			if maze[y][x] != -1 {
 				if y > 0 && maze[y-1][x] == -1 {
 					n++
