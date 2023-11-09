@@ -1,5 +1,6 @@
 package main
 
+/*
 type Queue []int
 
 func (self *Queue) Push(x int) {
@@ -21,3 +22,4 @@ func (self *Queue) Pop() int {
 func NewQueue() *Queue {
 	return &Queue{}
 }
+*/
