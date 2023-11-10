@@ -28,30 +28,36 @@ func NewQueue() *Queue {
 
 //////////////////////////////
 
+// структура воды
 type Water struct {
 	temperature int
 }
 
+// конструктор воды
 func NewWater(temperature int) *Water {
 	return &Water{
 		temperature: temperature,
 	}
 }
 
+// структура чайника
 type Teapot struct {
 	water *Water
 }
 
+// конструктор чайника
 func NewTeapot(water *Water) *Teapot {
 	return &Teapot{
 		water: water,
 	}
 }
 
+// функция проверки воды на кипение
 func (this *Teapot) is_boiling() bool {
 	return this.water.temperature >= 100
 }
 
+// функция нагрева воды
 func (this *Teapot) heat_up(t int) {
 	this.water.temperature += t
 }
