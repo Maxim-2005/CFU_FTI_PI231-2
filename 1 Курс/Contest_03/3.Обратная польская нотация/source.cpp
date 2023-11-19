@@ -2,6 +2,7 @@
 #include <stack> 
 #include <string> 
 
+// определение приоретета знака
 int getPriority(char operation) {
     if (operation == '+' || operation == '-')
         return 1;
@@ -14,11 +15,12 @@ int getPriority(char operation) {
 }
 
 int main() {
-    std::string expression, answer;
-    std::stack<char> operators;
+    std::string expression, answer; // выражение, ответ
+    std::stack<char> operators; // операторы
 
-    std::getline(std::cin, expression);
+    std::getline(std::cin, expression); // получение выражения
 
+    // обход выражения посимвально
     for (char c : expression) {
         if (std::isdigit(c))
             answer += c;
@@ -43,6 +45,7 @@ int main() {
         }
     }
 
+    // добавление пробелов
     while (!operators.empty()) {
         answer += " ";
         answer += operators.top();

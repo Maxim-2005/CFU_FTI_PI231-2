@@ -3,9 +3,9 @@ import (
 )
 
 func isPalindrome(s string) bool {
-	s = strings.ToLower(s)
-	left := 0
-	right := len(s) - 1
+	s = strings.ToLower(s) // делаем все буквы маленькими
+	left := 0              // начало слова
+	right := len(s) - 1    // конец слова
 
 	for left < right {
 		if !check(s[left]) {
@@ -23,6 +23,7 @@ func isPalindrome(s string) bool {
 	return true
 }
 
+// проверка
 func check(c byte) bool {
 	return (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9')
 }

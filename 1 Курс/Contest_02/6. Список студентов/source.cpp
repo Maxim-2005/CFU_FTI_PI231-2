@@ -1,21 +1,20 @@
-Student make_student(const std::string& line)
-{
-    std::size_t delimiter_pos = line.find(';');
-    std::string name = line.substr(0, delimiter_pos);
-    std::string group = line.substr(delimiter_pos + 1);
+Student make_student(const std::string& line) {
+    std::size_t delimiter_pos = line.find(';'); // разделение строки
+    std::string name = line.substr(0, delimiter_pos); // имя
+    std::string group = line.substr(delimiter_pos + 1); // группа
     return {name, group};
 }
 
-bool is_upper(const Student& s1, const Student& s2)
-{
+// сравнение двух студентов
+bool is_upper(const Student& s1, const Student& s2) {
     if (s1.group != s2.group)
         return s1.group < s2.group;
     
     return s1.name < s2.name;
 }
 
-void print(const std::vector<Student>& students)
-{
+// вывод списка студентов
+void print(const std::vector<Student>& students) {
     if (students.empty()) {
         std::cout << "Empty list!" << std::endl;
         return;
