@@ -9,14 +9,6 @@ const cols int = 9
 
 func test(arr []int) bool {
 	for i := 0; i < len(arr); i++ {
-		//for j := i; j < len(arr)-1; j++ {
-		//var temp int
-		//if arr[j] > arr[j+1] {
-		//temp = arr[j]
-		//arr[j] = arr[i+1]
-		//arr[j+1] = temp
-		//}
-		//}
 		arr[i] = 5
 	}
 	fmt.Print(arr)

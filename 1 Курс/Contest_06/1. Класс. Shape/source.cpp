@@ -4,7 +4,7 @@
 // класс фигуры
 class Shape {
 public:
-	// Контсруктор по умолчанию
+	// Конструктор по умолчанию
     Shape() {};
 
 	// виртуальный метод расчета периметра
@@ -18,7 +18,7 @@ class Rectangle : public Shape {
 public:
     int a, b;
 	
-	// Контсруктор прямоугольника
+	// Конструктор прямоугольника
     Rectangle(int a, int b) {
         this->a = a;
         this->b = b;
@@ -36,7 +36,7 @@ public:
     int r;
     double pi = 3.141592653589793;
 
-	// Контсруктор круга
+	// Конструктор круга
     Circle(int r) {
         this->r = r;
     }
@@ -52,7 +52,7 @@ class Triangle : public Shape {
 public:
     int a, b, c;
 
-	// Контсруктор треугольника
+	// Конструктор треугольника
     Triangle(int a, int b, int c) {
         this->a = a;
         this->b = b;
