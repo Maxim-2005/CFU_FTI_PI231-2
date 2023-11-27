@@ -1,0 +1,87 @@
+<html>
+
+	<head>
+		<title>Admin Panel</title>
+		<style type="text/css">
+			a:link {text-decoration: none; font-size: 12px; font-family: Arial; font-weight: bold; color:#7B7B7B;}
+			a:visited {text-decoration: none; font-size: 12px;  font-family: Arial; font-weight: bold; color:#7B7B7B}
+			a:hover {color:#B2B2B2; text-decoration: underline; font-size: 12px;  font-family: Arial; font-weight: bold;}
+			a:active {text-decoration: none; font-size: 12px;  font-family: Arial; font-weight: bold; color:#7B7B7B}
+		</style>
+		<script>
+			
+			var warn_created = false;
+
+			function SetRole()
+			{
+				if(document.getElementById("user_find").value.length)
+				{
+					document.getElementById("info").innerHTML = "";
+					document.getElementById("warn").innerHTML = "";
+					document.getElementById("info").append("Роли пользователя обновлены");
+				}
+				else
+				{
+					if(warn_created == false)
+					{
+						document.getElementById("info").innerHTML = "";
+						document.getElementById("warn").innerHTML = "";
+						document.getElementById("warn").append("Требуется заполнить данные");
+						warn_created = true;
+					}
+				}
+
+			}
+
+		</script>
+
+	</head>
+
+
+	<body>
+		<table border="0" width=40% align="center">
+
+			<tr style="height: 200; width: 40%; text-align: center">
+				<td colspan="2">
+					<h2 style="font-family: arial;">Панель управления</h2>
+				</td>
+			</tr>
+
+			<tr style="height: 50; width: 40%; text-align: center;">
+				<td style="width: 50%; background-color: #EAEAEA;">
+					<a href="admin_panel.html">Редакция ролей</a>
+				</td>
+				<td style="width: 50%;">
+					<a href="load_file.html">Загрузка расписания</a>
+				</td>
+			</tr>
+
+			<tr style="background-color: #EAEAEA; height: 500; text-align: center;">
+				<td colspan="2">
+					<div id="warn"></div>
+					<div id="info"></div>
+					<br>
+
+					ID пользователя
+					<br>
+					<input type="input" id="user_find" style="width:200; height: 20;">
+
+					<br>
+					<br>
+
+					Роль
+					<br>
+					<select style="width:200; height: 20;">
+						<option>Ученик</option>
+						<option>Преподаватель</option>
+						<option>Администратор</option>
+					</select>
+					<br>
+					<br>
+					<button onclick="SetRole()">Подтвердить</button>
+				</td>
+			</tr>
+		</table>
+	</body>
+
+</html>
