@@ -73,3 +73,7 @@
 | --- | :-: |
 | [1. Класс. Shape](https://github.com/Maxim-2005/CFU_FTI_IVT232-2/blob/a56b2147f1b014866f3e702310499face91d1544/1%20%D0%9A%D1%83%D1%80%D1%81/Contest_06/1.%20%D0%9A%D0%BB%D0%B0%D1%81%D1%81.%20Shape/source.cpp) | ![](https://raw.githubusercontent.com/VladimirChabanov/alg_and_prog_2023_prt/main/img/cpp.png) |
 | [2. Класс. Менеджер](https://github.com/Maxim-2005/CFU_FTI_IVT232-2/blob/a56b2147f1b014866f3e702310499face91d1544/1%20%D0%9A%D1%83%D1%80%D1%81/Contest_06/2.%20%D0%9A%D0%BB%D0%B0%D1%81%D1%81.%20%D0%9C%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%B5%D1%80/2.%20%D0%9A%D0%BB%D0%B0%D1%81%D1%81.%20%D0%9C%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%B5%D1%80/2.%20%D0%9A%D0%BB%D0%B0%D1%81%D1%81.%20%D0%9C%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%B5%D1%80.cpp) |  ![](https://raw.githubusercontent.com/VladimirChabanov/alg_and_prog_2023_prt/main/img/cpp.png) |
+
+|[Контест 7](https://contest.yandex.ru/contest/56824/problems/) |  |
+| --- | :-: |
+| [1. Класс. RunnableСlock](https://github.com/Maxim-2005/CFU_FTI_IVT232-2/blob/a56b2147f1b014866f3e702310499face91d1544/1%20%D0%9A%D1%83%D1%80%D1%81/Contest_06/1.%20%D0%9A%D0%BB%D0%B0%D1%81%D1%81.%20Shape/source.cpp) | ![](https://raw.githubusercontent.com/VladimirChabanov/alg_and_prog_2023_prt/main/img/cpp.png) |
