@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Пример запроса</title>
+</head>
+<body>
+    <h1>Пример запроса</h1>
+    <button onclick="makeGetRequest()">Отправить GET запрос</button>
+    <button onclick="makePostRequest()">Отправить POST запрос</button>
+
+    <script>
+        data = "status"
+
+        function makeGetRequest() {
+            fetch('http://localhost:8080', {
+                method: 'GET'
+            })
+            .then(response => response.text())
+            .then(data => console.log(data));
+        }
+
+        function makePostRequest() {
+            fetch('http://localhost:8080', {
+                method: 'POST'
+            })
+            .then(response => response.text())
+            .then(data => console.log(data));
+        }
+    </script>
+</body>
+</html>
