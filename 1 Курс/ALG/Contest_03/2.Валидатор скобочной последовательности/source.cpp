@@ -3,12 +3,14 @@
 #include <string>
 
 int main() {
-    std::string gl;
-    std::stack<char> s;
+    std::string gl; // строка
+    std::stack<char> s; // символ
     bool line = true;
     
     while (line) {
-        std::getline(std::cin, gl);
+        std::getline(std::cin, gl); // получение строки с консоли
+
+        // добавление скобок в стак и удаление пар
         for (char c : gl) {
             line = c != '!';
             if (c == '(' || c == '{' || c == '[')

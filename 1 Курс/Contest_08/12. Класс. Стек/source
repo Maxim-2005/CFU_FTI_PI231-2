@@ -1,0 +1,37 @@
+type SimpleStack struct {
+	stack []rune
+}
+
+// создаёт пустой стек
+func NewSimpleStack() *SimpleStack {
+	return &SimpleStack{stack: []rune{}}
+}
+
+// возвращает true, если стек пуст
+func (s *SimpleStack) empty() bool {
+	return len(s.stack) == 0
+}
+
+// добавляет на вершину стека символ r
+func (s *SimpleStack) push(r rune) {
+	s.stack = append(s.stack, r)
+}
+
+// возвращает элемент расположенный на вершине стека
+func (s *SimpleStack) top() rune {
+	if s.empty() {
+		return 0
+	}
+	return s.stack[len(s.stack)-1]
+}
+
+// извлекает элемент расположенный на вершине стека и возвращает его
+func (s *SimpleStack) pop() rune {
+	if s.empty() {
+		return 0
+	}
+	popValue := s.stack[len(s.stack)-1]
+	s.stack = s.stack[:len(s.stack)-1]
+	return popValue
+}
+

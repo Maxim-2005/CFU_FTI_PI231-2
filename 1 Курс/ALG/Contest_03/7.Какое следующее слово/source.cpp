@@ -5,13 +5,14 @@
 #include <algorithm>
 
 int main() {
-    std::ifstream f("data.txt");
-    std::map<std::string, int> m;
-    std::string target, w;
+    std::ifstream f("data.txt"); // открытие файла
+    std::map<std::string, int> m; // создание словаря
+    std::string target, w; // искомое слово, слово
     
     std::cin >> target;
     if (f.is_open()) {
         bool t = false;
+        // обход файла и поиск искомого слова
         for (f >> w; !f.eof(); f >> w) {
             if (w == "stopword")
                 break;
@@ -24,6 +25,7 @@ int main() {
         f.close();
     }
     
+    // сортировка и вывод
     if (!m.empty()) {
         std::vector<std::pair<std::string, int>> s(m.begin(), m.end());
         std::sort(s.begin(), s.end(), [](const auto& a, const auto& b) {

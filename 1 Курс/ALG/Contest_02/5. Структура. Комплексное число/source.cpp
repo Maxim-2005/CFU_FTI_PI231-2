@@ -1,4 +1,6 @@
 Complex make_complex(std::string num) {
+
+    // разбиение комплексного числа
     bool is_minus = false;
     bool is_plus = false;
     std::string first;
@@ -60,10 +62,12 @@ Complex mul(Complex left, Complex right) {
     return Complex{f,s };
 }
 
+// деление комплексных чисел
 Complex div(Complex left, Complex right ) {
     return Complex{(left.re*right.re + left.im*right.im)/(right.re*right.re + right.im*right.im), (left.im*right.re - left.re*right.im)/ (right.re * right.re + right.im * right.im) };
 }
 
+// вывод комплексных чисел
 void print(Complex num) {
     double re, im;
     re = num.re;

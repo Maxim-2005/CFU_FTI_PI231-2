@@ -1,7 +1,7 @@
 #include <sstream>
 
 Student make_student(std::string line) {
-    Student student;
+    Student student; // создаем студента
     
     std::vector<std::string> w;
     std::stringstream s(line);
@@ -34,6 +34,7 @@ Student make_student(std::string line) {
     return student;
 }
 
+// сравнение двух студентов
 bool is_upper(Student x, Student y) {
     if (x.group < y.group) {
         return true;
@@ -43,6 +44,7 @@ bool is_upper(Student x, Student y) {
     return false;
 }
 
+// проверка колличества долгов
 bool is_debtor(Student x, int cur_semester, int max_debt) {
     int debt = 0;
     for (auto& c : x.courses) {
@@ -53,6 +55,7 @@ bool is_debtor(Student x, int cur_semester, int max_debt) {
     return debt > max_debt;
 }
 
+// вывод списка студентов
 void print(std::vector<Student> students) {
     if (students.size() == 0) {
         std::cout << "Empty list!" << std::endl;
