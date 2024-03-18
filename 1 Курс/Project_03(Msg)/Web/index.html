@@ -1,17 +1,27 @@
+<!--
+Локальный месседжер
+Студенты:
+- Максим Покидько
+18 марта 2024 г.
+-->
+
 <!DOCTYPE html>
 <html lang="ru">
     <head>
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <button id="scrollButton2">Прокрутить до раздела 2</button>
-        <div id="section1" style="height: 1000px; background-color: #f0f0f0;">Раздел 1</div>
-        <button id="scrollButton3">Прокрутить до раздела 3</button>
-        <div id="section2" style="height: 1000px; background-color: #e0e0e0;">Раздел 2 (Целевой раздел)</div>
-        <button id="scrollButton1">Прокрутить до раздела 1</button>
-        <div id="section3" style="height: 1000px; background-color: #d0d0d0;">Раздел 3</div>
-        <script src="script.js"></script>
-        
-        <script src="script.js"></script>
+        <button id="description">description</button>
+        <button id="download">download</button>
+        <button id="about">about</button>
+
+        <!--Заменить нормальным контентом-->
+        <div id="section1" style="height: 1000px; background-color: #f0f0f0;">description</div>
+        <div id="section2" style="height: 1000px; background-color: #e0e0e0;">download</div>
+        <button onclick="downloadFile()">Скачать файл</button>
+        <div id="section3" style="height: 1000px; background-color: #d0d0d0;">about</div>
+
+        <button id="up">Вверх</button>
     </body>
+    <script src="script.js"></script>
 </html>
