@@ -1,0 +1,23 @@
+body, html {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .section {
+    height: 100vh; /* Задаем высоту раздела, чтобы можно было проскроллить до него */
+  }
+  
+  .scrollButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .scrollButton:hover {
+    background-color: #0056b3;
+  }
+  
