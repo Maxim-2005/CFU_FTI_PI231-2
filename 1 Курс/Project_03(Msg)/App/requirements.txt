@@ -1,1 +1,2 @@
-PySide6==...
+PySide6==6.0.3
+shiboken6==6.0.3
