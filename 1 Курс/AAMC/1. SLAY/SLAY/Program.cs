@@ -1,56 +1,49 @@
 ﻿using System;
 
-class SimpsonIntegration
+public class Program
 {
-    // Функция, которую мы интегрируем
-    static double Function(double x)
+    public static double SimpsonIntegral(Func<double, double> func, double a, double b, double e)
     {
-        return x * Math.Exp(x) / Math.Pow(1 + 0.4 * x, 2);
-    }
+        double rungeErr = e + 1;    // Погрешность Рунге, инициализированная значением, превышающим e
+        double jTemp = 0;   // Временное значение интеграла
+        int n = 2;  // Начальное количество разбиений
+        double integral = 0;   // Результат интегрирования
 
-    // Метод Симпсона для вычисления интеграла
-    static double SimpsonRule(double a, double b, int n)
-    {
-        double h = (b - a) / n;
-        double sum = Function(a) + Function(b);
-
-        for (int i = 1; i < n; i++)
+        while (true)
         {
-            double x = a + i * h;
-            sum += i % 2 == 0 ? 2 * Function(x) : 4 * Function(x);
-        }
+            if (rungeErr < e)
+                break;
 
-        return (h / 3) * sum;
-    }
+            double rightMultiplier = func(a) + func(b); // Правый множитель в формуле Симпсона.
+            jTemp = integral;  // Сохраняем предыдущее значение интеграла
 
-    // Контроль погрешности по формуле Рунге
-    static double RungeControl(double a, double b, int n)
-    {
-        double I1 = SimpsonRule(a, b, n); // Интеграл с шагом h
-        double I2 = SimpsonRule(a, b, 2 * n); // Интеграл с шагом h/2
-        return Math.Abs(I2 - I1) / 15; // Погрешность по формуле Рунге
-    }
+            // Суммируем значения функции на четных и нечетных узлах
+            for (int i = 1; i < n; i++)
+            {
+                rightMultiplier += (2 + 2 * (i % 2)) * func(a + (b - a) * (i / (double)n));
+            }
 
-    static void Main(string[] args)
-    {
-        double a = 0.5; // Начало интервала
-        double b = 1.7; // Конец интервала
-        double eps = 1e-4; // Заданная точность 10^-4
+            // Вычисляем значение интеграла по формуле Симпсона
+            integral = ((b - a) / (3 * n)) * rightMultiplier;
 
-        int n = 1; // Начальное число разбиений
+            if (n != 2) // Проверяем, не первая ли итерация
+                rungeErr = Math.Abs(integral - jTemp) / 15.0;  // Вычисляем погрешность Рунге
 
-        double integral = SimpsonRule(a, b, n);
-        double error = RungeControl(a, b, n);
+            Console.WriteLine("n:" + n);
+            Console.WriteLine("integral:" + integral);
+            Console.WriteLine("runge:" + rungeErr);
 
-        // Увеличиваем число разбиений, пока погрешность не будет меньше eps
-        while (error > eps)
-        {
             n *= 2;
-            integral = SimpsonRule(a, b, n);
-            error = RungeControl(a, b, n);
         }
 
-        Console.WriteLine($"Интеграл: {integral}");
-        Console.WriteLine($"Погрешность: {error}");
+        return integral;
+    }
+
+    public static void Main(string[] args)
+    {
+        // Пример использования:
+        Func<double, double> func = x => (Math.Log(x + Math.Pow((Math.Pow(x, 2) - 0.25), 1 / 2)) / (2 * Math.Pow(x, 2))); ; // функция
+        double result = SimpsonIntegral(func, 0.5, 1.7, 0.0001);
+        Console.WriteLine("Result: " + result);
     }
 }
