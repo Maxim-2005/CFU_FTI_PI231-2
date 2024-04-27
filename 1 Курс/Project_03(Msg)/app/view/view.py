@@ -192,7 +192,7 @@ class Ui_MainWindow(object):
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"HUB messager", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Messager", None))
         self.nameEdit.setText("")
         self.nameButton.setText(QCoreApplication.translate("MainWindow", u"name", None))
         self.btn_1.setText(QCoreApplication.translate("MainWindow", u"1", None))

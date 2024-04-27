@@ -12,7 +12,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>HUB messager</string>
+   <string>Messager</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout_4">

@@ -10,10 +10,10 @@ echo:
 pyinstaller --onefile --icon="view\img\icon.ico" -w HUB.py
 echo:
 
-copy /Y "dist\HUB.exe" HUB.exe >nul
+copy /Y "dist\HUB.exe" Messager.exe >nul
 RD /S /Q "dist"
 RD /S /Q "build"
-del /Q "HUB.spec"
+del /Q "Messager.spec"
 
 echo Компиляция завершена
 
