@@ -8,28 +8,22 @@ class Program
         // return 2 * x - Math.Log(x) - 4;
     }
 
-    static double GoldenSectionMethod(double a, double b, double epsilon)
+    static double Dichotomy(double a, double b, double e)
     {
-        double phi = (1 + Math.Sqrt(5)) / 2; // Золотое сечение
-        double x1 = b - (b - a) / phi;
-        double x2 = a + (b - a) / phi;
-
-        while (Math.Abs(b - a) > epsilon)
+        double c = 0.0;
+        while (Math.Abs(b - a) > e)
         {
-            if (Function(x1) < Function(x2))
-            {
-                b = x2;
-            }
-            else
-            {
-                a = x1;
-            }
+            c = (a + b) / 2.0;
 
-            x1 = b - (b - a) / phi;
-            x2 = a + (b - a) / phi;
+            if (Function(a) * Function(c) < 0)
+                b = c;
+            else if (Function(c) * Function(b) < 0)
+                a = c;
+            else
+                return 0;
         }
 
-        return (a + b) / 2;
+        return c;
     }
 
     static double SecantMethod(double x0, double x1, double epsilon)
@@ -70,8 +64,8 @@ class Program
         GraphicalMethod(a, b, step);
 
         // Находим корни уравнения с помощью метода золотого сечения
-        double rootGoldenSection = GoldenSectionMethod(a, b, epsilon);
-        Console.WriteLine("Корень найденый золотым сечением: " + rootGoldenSection);
+        double rootDichotomy = Dichotomy(a, b, epsilon);
+        Console.WriteLine("Корень найденый золотым сечением: " + rootDichotomy);
 
         // Находим корни уравнения с помощью метода секущих
         double rootSecant = SecantMethod(a, b, epsilon);
