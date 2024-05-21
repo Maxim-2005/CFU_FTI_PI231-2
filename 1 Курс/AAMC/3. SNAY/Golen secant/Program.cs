@@ -4,8 +4,7 @@ class Program
 {
     static double Function(double x)
     {
-        return x * x - Math.Cos(x);
-        // return 2 * x - Math.Log(x) - 4;
+        return 2 * x - Math.Log(x) - 4;
     }
 
     static double Dichotomy(double a, double b, double e)
@@ -42,8 +41,8 @@ class Program
 
     static void Main(string[] args)
     {
-        double a = -0.5; // Начальное значение интервала
-        double b = 1; // Конечное значение интервала
+        double a = 1; // Начальное значение интервала
+        double b = 5; // Конечное значение интервала
         double epsilon = 1e-10; // Точность
         double step = 0.1; // Шаг
 
@@ -65,7 +64,7 @@ class Program
 
         // Находим корни уравнения с помощью метода золотого сечения
         double rootDichotomy = Dichotomy(a, b, epsilon);
-        Console.WriteLine("Корень найденый золотым сечением: " + rootDichotomy);
+        Console.WriteLine("Корень найденый дихотомией: " + rootDichotomy);
 
         // Находим корни уравнения с помощью метода секущих
         double rootSecant = SecantMethod(a, b, epsilon);

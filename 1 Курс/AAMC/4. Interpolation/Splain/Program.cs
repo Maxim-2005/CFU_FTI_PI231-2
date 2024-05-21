@@ -48,7 +48,7 @@ class Program
 
     static void Main(string[] args)
     {
-        (double x, double y) = NewtonRaphson(-2, -2, 1e-4);
+        (double x, double y) = NewtonRaphson(1, 2, 1e-4);
         Console.WriteLine("x = " + x + "\t" + "y = " + y);
     }
 }

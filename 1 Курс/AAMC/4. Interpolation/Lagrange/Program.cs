@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 public class LagrangeInterpolation
 {
@@ -42,5 +44,31 @@ public class LagrangeInterpolation
         double y = lagPol(x);
 
         Console.WriteLine($"x = {x}\t y = {y}");
+
+        // Создаем новую форму и график
+        Form form = new Form();
+        Chart chart = new Chart();
+        chart.Parent = form;
+        chart.Dock = DockStyle.Fill;
+
+        // Создаем серию для точек интерполяции
+        Series series1 = new Series();
+        series1.ChartType = SeriesChartType.Point;
+        for (int i = 0; i < xVal.Length; i++)
+        {
+            series1.Points.AddXY(xVal[i], yVal[i]);
+        }
+        chart.Series.Add(series1);
+
+        // Создаем серию для лагранжевой интерполяции
+        Series series2 = new Series();
+        series2.ChartType = SeriesChartType.Line;
+        for (double xi = xVal[0]; xi <= xVal[xVal.Length - 1]; xi += 0.01)
+        {
+            series2.Points.AddXY(xi, lagPol(xi));
+        }
+        chart.Series.Add(series2);
+
+        form.ShowDialog();
     }
 }
