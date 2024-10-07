@@ -1,0 +1,51 @@
+﻿<Window x:Class="_1.Использование_программных_конструкций_С_.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Задание 2" Height="300" Width="600" Foreground="{x:Null}" MinHeight="360" MinWidth="620">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF202020" Offset="0"/>
+            <GradientStop Color="#FF024550" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="36*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="29*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="119*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Button Grid.Column="1" x:Name ="calculate" Content="Вычислить" VerticalAlignment="Center" Height="18" Click="calculate_Click" Margin="281,0,16,0" Grid.Row="1" HorizontalAlignment="Right" Background="White" FontFamily="Bahnschrift SemiBold SemiCondensed"/>
+        <TextBox x:Name="num" TextWrapping="Wrap" Height="18" Background="White" TextChanged="num_TextChanged" Margin="32,9,10,9" Grid.Row="1" FontFamily="Bahnschrift SemiBold SemiCondensed"/>
+        <Label Content="Вычисление с помощью Math.Sqrt:" Grid.Column="1" Foreground="White" Margin="10,0,0,0" Height="24" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Bahnschrift SemiBold SemiCondensed"/>
+        <Button Grid.Column="1" x:Name ="calculate_acc" Content="Вычислить точно" Grid.Row="4" Margin="10,0,0,0" Height="18" VerticalAlignment="Center" Click="calculate_acc_Click" HorizontalAlignment="Left" Width="99" Background="White" Foreground="Black" FontFamily="Bahnschrift SemiBold SemiCondensed"/>
+        <Button Grid.Column="1" x:Name ="make_iter" Content="Выполнить итерацию" Grid.Row="4" Margin="0,0,16,0" Height="18" VerticalAlignment="Center" Click="make_iter_Click" Background="White" HorizontalAlignment="Right" Width="123" FontFamily="Bahnschrift SemiBold SemiCondensed"/>
+        <Label Content="Вычисление с помощью метода ньютона:" Grid.Column="1" Foreground="White" Margin="10,0,0,0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Bahnschrift SemiBold SemiCondensed"/>
+        <TextBox x:Name="initial_guess" TextWrapping="Wrap" Background="White" TextChanged="num_TextChanged" Margin="32,0,10,0" Grid.Row="3" Height="18" VerticalAlignment="Center" Text="1" FontFamily="Bahnschrift SemiBold SemiCondensed"/>
+        <Label Content="Введите начальное приближение:" Foreground="White" Margin="32,0,0,0" Grid.Row="2" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Bahnschrift SemiBold SemiCondensed"/>
+        <Label Content="Введите число:" Foreground="White" Margin="32,0,0,0" Height="24" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Bahnschrift SemiBold SemiCondensed"/>
+        <Label Content="Метод Ньютона:&#xD;&#xA;" Foreground="White" Margin="0,0,236,113" Grid.Row="5" FontFamily="Bahnschrift SemiBold SemiCondensed" Grid.Column="1"/>
+
+        <!-- Поля для итераций, изменения и погрешности -->
+        <Label Content="Итераций:" Foreground="White" Grid.Row="5" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" FontFamily="Bahnschrift SemiBold SemiCondensed"/>
+        <TextBox x:Name="iterations_count" TextWrapping="Wrap" Height="18" Background="White" Margin="100,0,16,10" Grid.Row="5" VerticalAlignment="Bottom" Grid.Column="1" IsReadOnly="True" FontFamily="Bahnschrift SemiBold SemiCondensed"/>
+
+        <Label Content="Изменение:" Foreground="White" Grid.Row="5" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,40" FontFamily="Bahnschrift SemiBold SemiCondensed"/>
+        <TextBox x:Name="change_result" TextWrapping="Wrap" Height="18" Background="White" Margin="100,0,16,40" Grid.Row="5" VerticalAlignment="Bottom" Grid.Column="1" IsReadOnly="True" FontFamily="Bahnschrift SemiBold SemiCondensed"/>
+
+        <Label Content="Погрешность:" Foreground="White" Grid.Row="5" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,70" FontFamily="Bahnschrift SemiBold SemiCondensed"/>
+        <TextBox x:Name="error_result" TextWrapping="Wrap" Height="18" Background="White" Margin="100,0,16,70" Grid.Row="5" VerticalAlignment="Bottom" Grid.Column="1" IsReadOnly="True" FontFamily="Bahnschrift SemiBold SemiCondensed"/>
+
+        <TextBox x:Name="math_result" TextWrapping="Wrap" Height="18" Background="White" TextChanged="num_TextChanged" Margin="12,0,96,0" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" FontFamily="Bahnschrift SemiBold SemiCondensed"/>
+        <TextBox x:Name="newton_result" TextWrapping="Wrap" Height="18" Background="White" TextChanged="num_TextChanged" Margin="12,0,16,0" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" FontFamily="Bahnschrift SemiBold SemiCondensed"/>
+    </Grid>
+</Window>
