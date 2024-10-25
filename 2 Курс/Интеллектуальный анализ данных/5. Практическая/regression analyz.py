@@ -4,16 +4,16 @@ import numpy as np
 from math import exp
 from dsmltf import scale, mult_r_squared, mult_predict, dot
 
-# Генерация данных для решения задачи: стоит ли идти на пару
+# Генерация данных для решения задачи: пообедать сегодня ?
 # Характеристики: 
-# 1 - практика (1) или лекция (0)
-# 2 - профильный предмет (1) или нет (0)
-# 3 - обязательны конспекты (1) или нет (0)
-# 4 - хочется кушать (1) или нет (0)
-# 5 - это третья пара и более (1) или нет (0)
-# 6 - есть еще пары после этой (1) или нет (0)
-# 7 - сложность предмета от 1 до 5
-# Результат: решение, пойдет ли студент на пару (1 - да, 0 - нет)
+# 1 - хочется есть (1) или не хочется есть (0)
+# 2 - голодный (1) сытый (0)
+# 3 - приготовить (1) или купить (0)
+# 4 - купить попить (1) или в сухомятку (0)
+# 5 - врендая еда (1) или полезная (0)
+# 6 - наешься (1) или не наешься (0)
+# 7 - сложность блюда от 1 до 5
+# Результат: решение, пообедаю ли я сегодня (1 - да, 0 - нет)
 
 def make_data() -> list:
     data = []
@@ -22,34 +22,33 @@ def make_data() -> list:
         arr = [randint(0,1), randint(0,1), randint(0,1), randint(0,1), randint(0,1), randint(0,1), randint(1,5)]
         
         # Вывод информации по каждому признаку
-        print("Практика" * arr[0] + "Лекция" * (not arr[0]))
-        print("Предмет -", "профильный" * arr[1] + "не профильный" * (not arr[1]))
-        print("Конспекты -", "обязательны" * arr[2] + "не обязательны" * (not arr[2]))
-        print("Кушать", "хочется" * arr[3] + "не хочется" * (not arr[3]))
-        print("Пара уже 3+", "Да" * arr[4] + "Нет" * (not arr[4]))
-        print("Есть ли еще пары?", "Да" * arr[5] + "Нет" * (not arr[5]))
-        print(f"Предмет сложен на {arr[6]}")
+        print("хочется есть" * arr[0] + "не хочется есть" * (not arr[0]))
+        print("голодный" * arr[1] + "сытый" * (not arr[1]))
+        print("приготовить" * arr[2] + "купить" * (not arr[2]))
+        print("купить попить" * arr[3] + "в сухомятку" * (not arr[3]))
+        print("врендая еда" * arr[4] + "полезная" * (not arr[4]))
+        print("наешься" * arr[5] + "не наешься" * (not arr[5]))
+        print(f"сложность блюда на {arr[6]}")
         
         # Запрашиваем у пользователя, пойдет ли он на пару
-        arr.append(int(input("Пойдешь ли на пару? ")))
+        arr.append(int(input("Пообедаю ли я сегодня? ")))
         data.append(arr)
     return data
 
 # Функция для решения линейной регрессии методом Гаусса
-def regression(X, y):  # X – это список векторов
+def regression(vectors, y):  # vectors – это список векторов
     n = len(y)
-    M = []
-    b = []
+    matrix = []
+    free = []
     
     # Формируем матрицу системы уравнений
-    M.append([sum(x) for x in X] + [n])
-    b.append(sum(y))
-    for _, xl in enumerate(X):
-        M.append([dot(x, xl) for x in X] + [sum(xl)])
-        b.append(dot(y, xl))
-    
+    matrix.append([sum(x) for x in vectors] + [n])
+    free.append(sum(y))
+    for _, xl in enumerate(vectors):
+        matrix.append([dot(x, xl) for x in vectors] + [sum(xl)])
+        free.append(dot(y, xl))
     # Решаем систему методом Гаусса
-    beta = gauss(np.array(M, dtype="float64"), np.array(b, dtype="float64"))
+    beta = gauss(np.array(matrix, dtype="float64"), np.array(free, dtype="float64"))
     return beta  # свободный коэффициент находится в конце beta[-1]
 
 def main():
@@ -66,8 +65,8 @@ def main():
             [0, 0, 1, 0, 0, 0, 1, 0], [1, 0, 1, 1, 0, 1, 3, 1], [0, 0, 0, 0, 0, 0, 5, 0]]
     
     # Инициализация матриц для обучения
-    X = [[], [], [], [], [], [], []]
-    y = []
+    vectors = [[], [], [], [], [], [], []]
+    result = []
     
     # Масштабируем данные
     dat = scale(data)
@@ -75,14 +74,15 @@ def main():
     # Переводим данные в нужный формат для регрессии
     for i in range(len(dat[:-10])):
         for j in range(7):
-            X[j].append(dat[i][j])
-        y.append(dat[i][-1])
+            vectors[j].append(dat[i][j])
+        result.append(dat[i][-1])
     
     # Выполняем линейную регрессию для нахождения коэффициентов
-    beta = regression(X, y)
+    beta = regression(vectors, result)
+    print(f"Коэффициенты: ", *beta)
     
     # Вычисляем метрику ошибки по квадратам
-    R = mult_r_squared([i[:-1] for i in dat[-10:]], y, beta)
+    R = mult_r_squared([i[:-1] for i in dat[-10:]], result, beta)
     
     # Тестируем на отложенной выборке
     for i in range(20, 30):

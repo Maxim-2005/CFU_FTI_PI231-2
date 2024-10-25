@@ -5,52 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_1.Вычислить_НОД_алгоритмом_Евклида"
         mc:Ignorable="d"
-        Title="Нод Евклидом" Height="450" Width="800">
+        Title="Нод Евклидом" Height="256" Width="512" MinHeight="256" MinWidth="512">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-            <GradientStop Color="#FF8DF7FF"/>
-            <GradientStop Color="#FF00363A" Offset="1"/>
+            <GradientStop Color="Black" Offset="1"/>
+            <GradientStop Color="#FF2F3351"/>
         </LinearGradientBrush>
     </Window.Background>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="267*"></ColumnDefinition>
-            <ColumnDefinition Width="133*"></ColumnDefinition>
-            <ColumnDefinition Width="133*"></ColumnDefinition>
-            <ColumnDefinition Width="133*"></ColumnDefinition>
-            <ColumnDefinition Width="133*"></ColumnDefinition>
+            <ColumnDefinition Width="6*" MinWidth="128"></ColumnDefinition>
+            <ColumnDefinition Width="3*" MinWidth="64"></ColumnDefinition>
+            <ColumnDefinition Width="5*" MinWidth="128"></ColumnDefinition>
+            <ColumnDefinition Width="3*" MinWidth="64"></ColumnDefinition>
+            <ColumnDefinition Width="5*" MinWidth="128"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="16*"></RowDefinition>
-            <RowDefinition Height="16*"></RowDefinition>
-            <RowDefinition Height="16*"></RowDefinition>
-            <RowDefinition Height="16*"></RowDefinition>
-            <RowDefinition Height="16*"></RowDefinition>
-            <RowDefinition Height="16*"></RowDefinition>
-            <RowDefinition Height="16*"></RowDefinition>
-            <RowDefinition Height="16*"></RowDefinition>
-            <RowDefinition Height="16*"></RowDefinition>
-            <RowDefinition Height="16*"></RowDefinition>
-            <RowDefinition Height="16*"></RowDefinition>
-            <RowDefinition Height="64*"></RowDefinition>
+            <RowDefinition Height="1*" MinHeight="32"></RowDefinition>
+            <RowDefinition Height="1*" MinHeight="32"></RowDefinition>
+            <RowDefinition Height="1*" MinHeight="32"></RowDefinition>
+            <RowDefinition Height="1*" MinHeight="32"></RowDefinition>
+            <RowDefinition Height="1*" MinHeight="32"></RowDefinition>
+            <RowDefinition Height="1*" MinHeight="32"></RowDefinition>
+            <RowDefinition Height="2*" MinHeight="0"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBox TextWrapping="Wrap" Text="TextBox" Margin="10,0,10,0" VerticalAlignment="Center"/>
-        <TextBlock Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center" Margin="10,0,10,0"/>
-        <TextBlock Grid.Row="2" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center" Margin="10,0,10,0"/>
-        <TextBlock Grid.Row="3" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center" Margin="10,0,10,0"/>
-        <TextBlock Grid.Row="4" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center" Margin="10,0,10,0"/>
-        <Button Content="Button" Grid.Row="5" Margin="10,0,10,0" VerticalAlignment="Center"/>
-        <TextBlock Grid.Row="6" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center" Margin="10,0,10,0"/>
-        <TextBlock Grid.Row="7" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center" Margin="10,0,10,0"/>
-        <Button Content="Button" Margin="10,0,10,0" Grid.Row="8" VerticalAlignment="Center"/>
-        <Button Content="Button" Grid.Row="9" VerticalAlignment="Center" Margin="10,0,10,0"/>
-        <Button Content="Button" Grid.Row="10" VerticalAlignment="Center" Margin="10,0,10,0"/>
-        <TextBlock Grid.Column="1" Margin="0,10,0,0" Grid.Row="11" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-        <TextBlock Grid.Column="2" HorizontalAlignment="Center" Margin="0,10,0,0" Grid.Row="11" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-        <TextBlock Grid.Column="3" HorizontalAlignment="Center" Margin="0,10,0,0" Grid.Row="11" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-        <ListBox Grid.Row="11" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,31,0,0" Grid.Column="2"/>
-        <ListBox Grid.Row="11" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,31,0,0" Grid.Column="3"/>
-        <ListBox Grid.Row="11" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,31,0,0" Grid.Column="1"/>
+        <TextBox x:Name="firstDigit" TextWrapping="Wrap" Margin="10,0,10,0" VerticalAlignment="Center" Foreground="White" Background="#FF353535" BorderBrush="White" FontFamily="Bahnschrift SemiBold"/>
+        <Button x:Name="findGcd" Content="Рассчитать НОД" Grid.Row="5" Margin="10,0,10,0" VerticalAlignment="Center" Foreground="White" BorderBrush="White" Background="#FF353535" Click="findGcd_Click" FontFamily="Bahnschrift SemiBold"/>
+        <TextBlock TextWrapping="Wrap" Text="Евклид:" VerticalAlignment="Center" Margin="10,0,10,0" Foreground="White" Grid.Column="1" FontFamily="Bahnschrift SemiBold"/>
+        <TextBlock Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" Margin="10,0,10,0" Text="Штейн:" Foreground="White" Grid.Column="1" FontFamily="Bahnschrift SemiBold"/>
+        <TextBox x:Name="secondDigit" TextWrapping="Wrap" Margin="10,0,10,0" VerticalAlignment="Center" Grid.Row="1" Background="#FF353535" BorderBrush="White" Foreground="White" FontFamily="Bahnschrift SemiBold"/>
+        <TextBox x:Name="thirdDigit" TextWrapping="Wrap" Margin="10,0,10,0" VerticalAlignment="Center" Grid.Row="2" Background="#FF353535" BorderBrush="White" Foreground="White" FontFamily="Bahnschrift SemiBold" Text="0"/>
+        <TextBox x:Name="fourDigit" TextWrapping="Wrap" Margin="10,0,10,0" VerticalAlignment="Center" Grid.Row="3" Background="#FF353535" BorderBrush="White" Foreground="White" FontFamily="Bahnschrift SemiBold" Text="0"/>
+        <TextBox x:Name="fiveDigit" TextWrapping="Wrap" Margin="10,0,10,0" VerticalAlignment="Center" Grid.Row="4" Background="#FF353535" BorderBrush="White" Foreground="White" FontFamily="Bahnschrift SemiBold" Text="0"/>
+        <TextBlock TextWrapping="Wrap" Text="Время:" VerticalAlignment="Center" Margin="10,0,10,0" Foreground="White" Grid.Column="3" FontFamily="Bahnschrift SemiBold"/>
+        <TextBlock TextWrapping="Wrap" Text="Время:" VerticalAlignment="Center" Margin="10,0,10,0" Foreground="White" Grid.Column="3" Grid.Row="1" FontFamily="Bahnschrift SemiBold"/>
+        <TextBlock x:Name="shteinResult" Grid.Column="2" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Row="1" FontFamily="Bahnschrift SemiBold" Foreground="White" Margin="10,0,10,0" Text="0"/>
+        <TextBlock x:Name="euclidResult" Grid.Column="2" TextWrapping="Wrap" VerticalAlignment="Center" Margin="10,0,10,0" FontFamily="Bahnschrift SemiBold" Foreground="White" Text="0"/>
+        <TextBlock x:Name="euclidTime" Grid.Column="4" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Bahnschrift SemiBold" Foreground="White" Margin="10,0,10,0" Text="0"/>
+        <TextBlock x:Name="shteinTime" Grid.Column="4" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Row="1" Margin="10,0,10,0" FontFamily="Bahnschrift SemiBold" Foreground="White" Text="0"/>
     </Grid>
 </Window>
