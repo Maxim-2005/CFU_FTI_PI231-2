@@ -17,7 +17,7 @@ namespace _1.Вычислить_НОД_алгоритмом_Евклида
         private void findGcd_Click(object sender, RoutedEventArgs e)
         {
             if (!TryGet(firstDigit.Text, out int a) || !TryGet(secondDigit.Text, out int b) || !TryGet(thirdDigit.Text, out int c) ||
-                !TryGet(fourDigit.Text, out int d) || !TryGet(fiveDigit.Text, out int f))
+                !TryGet(fourDigit.Text, out int d) || !TryGet(fiveDigit.Text, out int f) || !TryGet(sixDigit.Text, out int g))
             {
                 MessageBox.Show("Введите целое положительное число!");
                 return;
@@ -72,6 +72,12 @@ namespace _1.Вычислить_НОД_алгоритмом_Евклида
                 sw.Stop();
 
                 timeEuclid = sw.Elapsed.TotalMilliseconds;
+            }
+            if (g != 0)
+            {
+                sw.Restart();
+                euclid = Shtein(a, b, c, d, f, g);
+                sw.Stop();
             }
 
             euclidResult.Text = euclid.ToString();

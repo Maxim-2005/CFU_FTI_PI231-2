@@ -30,11 +30,11 @@
             <RowDefinition Height="1*" MinHeight="32"></RowDefinition>
             <RowDefinition Height="2*" MinHeight="0"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBox x:Name="firstDigit" TextWrapping="Wrap" Margin="10,0,10,0" VerticalAlignment="Center" Foreground="White" Background="#FF353535" BorderBrush="White" FontFamily="Bahnschrift SemiBold"/>
-        <Button x:Name="findGcd" Content="Рассчитать НОД" Grid.Row="5" Margin="10,0,10,0" VerticalAlignment="Center" Foreground="White" BorderBrush="White" Background="#FF353535" Click="findGcd_Click" FontFamily="Bahnschrift SemiBold"/>
+        <TextBox x:Name="firstDigit" TextWrapping="Wrap" Margin="10,0,10,0" VerticalAlignment="Center" Foreground="White" Background="#FF353535" BorderBrush="White" FontFamily="Bahnschrift SemiBold" Text="0"/>
+        <Button x:Name="findGcd" Content="Рассчитать НОД" Grid.Row="6" Margin="10,10,10,0" VerticalAlignment="Top" Foreground="White" BorderBrush="White" Background="#FF353535" Click="findGcd_Click" FontFamily="Bahnschrift SemiBold"/>
         <TextBlock TextWrapping="Wrap" Text="Евклид:" VerticalAlignment="Center" Margin="10,0,10,0" Foreground="White" Grid.Column="1" FontFamily="Bahnschrift SemiBold"/>
         <TextBlock Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" Margin="10,0,10,0" Text="Штейн:" Foreground="White" Grid.Column="1" FontFamily="Bahnschrift SemiBold"/>
-        <TextBox x:Name="secondDigit" TextWrapping="Wrap" Margin="10,0,10,0" VerticalAlignment="Center" Grid.Row="1" Background="#FF353535" BorderBrush="White" Foreground="White" FontFamily="Bahnschrift SemiBold"/>
+        <TextBox x:Name="secondDigit" TextWrapping="Wrap" Margin="10,0,10,0" VerticalAlignment="Center" Grid.Row="1" Background="#FF353535" BorderBrush="White" Foreground="White" FontFamily="Bahnschrift SemiBold" Text="0"/>
         <TextBox x:Name="thirdDigit" TextWrapping="Wrap" Margin="10,0,10,0" VerticalAlignment="Center" Grid.Row="2" Background="#FF353535" BorderBrush="White" Foreground="White" FontFamily="Bahnschrift SemiBold" Text="0"/>
         <TextBox x:Name="fourDigit" TextWrapping="Wrap" Margin="10,0,10,0" VerticalAlignment="Center" Grid.Row="3" Background="#FF353535" BorderBrush="White" Foreground="White" FontFamily="Bahnschrift SemiBold" Text="0"/>
         <TextBox x:Name="fiveDigit" TextWrapping="Wrap" Margin="10,0,10,0" VerticalAlignment="Center" Grid.Row="4" Background="#FF353535" BorderBrush="White" Foreground="White" FontFamily="Bahnschrift SemiBold" Text="0"/>
@@ -44,5 +44,6 @@
         <TextBlock x:Name="euclidResult" Grid.Column="2" TextWrapping="Wrap" VerticalAlignment="Center" Margin="10,0,10,0" FontFamily="Bahnschrift SemiBold" Foreground="White" Text="0"/>
         <TextBlock x:Name="euclidTime" Grid.Column="4" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Bahnschrift SemiBold" Foreground="White" Margin="10,0,10,0" Text="0"/>
         <TextBlock x:Name="shteinTime" Grid.Column="4" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Row="1" Margin="10,0,10,0" FontFamily="Bahnschrift SemiBold" Foreground="White" Text="0"/>
+        <TextBox x:Name="sixDigit" TextWrapping="Wrap" Margin="10,0,10,0" VerticalAlignment="Center" Grid.Row="5" Background="#FF353535" BorderBrush="White" Foreground="White" FontFamily="Bahnschrift SemiBold" Text="0"/>
     </Grid>
 </Window>

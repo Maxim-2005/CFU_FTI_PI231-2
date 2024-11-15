@@ -106,6 +106,31 @@ namespace _1.Вычислить_НОД_алгоритмом_Евклида
         }
 
         /// <summary>
+        /// Эвклид с парамсам
+        /// </summary>
+        /// <param name="numbers"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
+        public static int Euclid(params int[] numbers)
+        {
+            if (numbers.Length == 0)
+            {
+                throw new ArgumentException("Должен быть хотя бы один аргумент");
+            }
+
+            // Начинаем с первого числа
+            int gcd = numbers[0];
+
+            // Итеративно находим НОД для всех чисел
+            for (int i = 1; i < numbers.Length; i++)
+            {
+                gcd = Euclid(gcd, numbers[i]);
+            }
+
+            return gcd;
+        }
+
+        /// <summary>
         /// Методот Штейна
         /// </summary>
         /// <param name="a"></param>
@@ -134,7 +159,7 @@ namespace _1.Вычислить_НОД_алгоритмом_Евклида
 
             do
             {
-                while ((b & 1) == 0) // Loop x
+                while ((b & 1) == 0)
                     b >>= 1;
 
                 if (a < b)
@@ -287,5 +312,50 @@ namespace _1.Вычислить_НОД_алгоритмом_Евклида
             return result;
         }
 
+        public static int Shtein(params int[] numbers)
+        {
+            if (numbers.Length == 0)
+                throw new ArgumentException("Должен быть хотя бы один аргумент");
+
+            return ShteinRecursive(numbers, numbers.Length);
+        }
+
+        private static int ShteinRecursive(int[] numbers, int n)
+        {
+            if (n == 1)
+                return numbers[0];
+
+            int result = ShteinRecursive(numbers, n - 1);
+            int current = numbers[n - 1];
+
+            if (result == 0) return current;
+            if (current == 0) return result;
+
+            int shift = 0;
+            while (((result | current) & 1) == 0)
+            {
+                result >>= 1;
+                current >>= 1;
+                shift++;
+            }
+
+            while ((result & 1) == 0) result >>= 1;
+
+            while (current != 0)
+            {
+                while ((current & 1) == 0) current >>= 1;
+
+                if (result > current)
+                {
+                    int temp = result;
+                    result = current;
+                    current = temp;
+                }
+
+                current -= result;
+            }
+
+            return result << shift;
+        }
     }
 }
