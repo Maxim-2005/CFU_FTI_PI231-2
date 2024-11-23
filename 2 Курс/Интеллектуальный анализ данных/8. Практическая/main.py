@@ -1,7 +1,7 @@
 from dsmltf import build_tree_id3, classify
 
 
-inputs_1 = [
+data = [
     ({'level': 'Senior', 'lang': 'Java', 'tweets': 'no', 'phd': 'no'}, False),
     ({'level': 'Senior', 'lang': 'Java', 'tweets': 'no', 'phd': 'yes'}, False),
     ({'level': 'Mid', 'lang': 'Python', 'tweets': 'no', 'phd': 'no'}, True),
@@ -39,5 +39,6 @@ inputs_1 = [
     ({'level': 'Mid', 'lang': 'C++', 'tweets': 'yes', 'phd': 'no'}, True),
 ]
 
-tree = build_tree_id3(inputs_1)
+tree = build_tree_id3(data) # Построение дерева
+# Проверка работы дерева
 print(classify(tree,{'level':'Senior', 'lang':'Java', 'tweets':'no', 'phd':'no'}))
