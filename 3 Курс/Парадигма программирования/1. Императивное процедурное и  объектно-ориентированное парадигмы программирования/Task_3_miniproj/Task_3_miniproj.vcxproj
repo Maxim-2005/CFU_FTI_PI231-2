@@ -21,10 +21,9 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{c1c416f6-1c01-4e95-b7bc-23b4e6cbbfb0}</ProjectGuid>
-    <RootNamespace>Task1</RootNamespace>
+    <ProjectGuid>{8e8c25d7-b722-4859-a257-7d2305fe831e}</ProjectGuid>
+    <RootNamespace>Task3miniproj</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>Taks_1_OOP</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -94,8 +93,6 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
@@ -105,7 +102,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Documents\MyPrograms\CFU_FTI_PI-231-2\3 Курс\Парадигма программирования\1. Императивное процедурное и  объектно-ориентированное парадигмы программирования\single_include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -123,19 +119,20 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Task_1_OOP.cpp" />
+    <ClCompile Include="Controller.cpp" />
+    <ClCompile Include="Model.cpp" />
+    <ClCompile Include="Model.h" />
+    <ClCompile Include="main1.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="View.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="base.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\single_include\nlohmann\json.hpp" />
+    <ClInclude Include="Controller.h" />
+    <ClInclude Include="View.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

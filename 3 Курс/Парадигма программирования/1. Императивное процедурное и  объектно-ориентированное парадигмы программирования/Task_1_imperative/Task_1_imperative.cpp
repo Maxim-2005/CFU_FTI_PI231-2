@@ -3,6 +3,7 @@
 #include <vector>
 #include <fstream>
 #include <nlohmann/json.hpp>
+#include <iomanip> // для std::fixed и std::setprecision
 
 using json = nlohmann::json;
 
@@ -23,6 +24,104 @@ void printStudent(const Student& student) {
 // Функция для проверки критериев фильтрации
 bool meetsCriteria(const Student& student) {
     return student.age < 19 && student.averageGrade > 4.0;
+}
+
+// Функция для проверки возраста меньше 19
+bool isUnder19(const Student& student) {
+    return student.age < 19;
+}
+
+// Функция для получения студентов младше 19 лет
+std::vector<Student> getStudentsUnder19(const std::vector<Student>& students) {
+    std::vector<Student> under19Students;
+
+    for (const auto& student : students) {
+        if (isUnder19(student)) {
+            under19Students.push_back(student);
+        }
+    }
+
+    return under19Students;
+}
+
+// Функция для вычисления среднего балла студентов младше 19 лет
+double calculateAverageGradeUnder19(const std::vector<Student>& students) {
+    auto under19Students = getStudentsUnder19(students);
+
+    if (under19Students.empty()) {
+        return 0.0;
+    }
+
+    double sum = 0.0;
+    for (const auto& student : under19Students) {
+        sum += student.averageGrade;
+    }
+
+    return sum / under19Students.size();
+}
+
+// Функция для нахождения максимального балла среди студентов младше 19 лет
+double findMaxGradeUnder19(const std::vector<Student>& students) {
+    auto under19Students = getStudentsUnder19(students);
+
+    if (under19Students.empty()) {
+        return 0.0;
+    }
+
+    double maxGrade = under19Students[0].averageGrade;
+    for (const auto& student : under19Students) {
+        if (student.averageGrade > maxGrade) {
+            maxGrade = student.averageGrade;
+        }
+    }
+
+    return maxGrade;
+}
+
+// Функция для вывода статистики по студентам младше 19 лет
+void printUnder19Statistics(const std::vector<Student>& students) {
+    auto under19Students = getStudentsUnder19(students);
+
+    if (under19Students.empty()) {
+        std::cout << "No students under 19 years found." << std::endl;
+        return;
+    }
+
+    // Вычисляем статистику
+    double averageGrade = calculateAverageGradeUnder19(students);
+    double maxGrade = findMaxGradeUnder19(students);
+
+    // Выводим статистику
+    std::cout << "\n=== Statistics for students under 19 years ===" << std::endl;
+    std::cout << "Total students under 19: " << under19Students.size() << std::endl;
+    std::cout << std::fixed << std::setprecision(2); // Форматируем вывод чисел
+    std::cout << "Average grade of students under 19: " << averageGrade << std::endl;
+    std::cout << "Maximum grade among students under 19: " << maxGrade << std::endl;
+
+    // Выводим студентов с максимальным баллом
+    std::cout << "\nStudent(s) with maximum grade:" << std::endl;
+    for (const auto& student : under19Students) {
+        if (student.averageGrade == maxGrade) {
+            printStudent(student);
+        }
+    }
+}
+
+// Функция для вывода всех студентов младше 19 лет
+void printStudentsUnder19(const std::vector<Student>& students) {
+    auto under19Students = getStudentsUnder19(students);
+
+    if (under19Students.empty()) {
+        std::cout << "No students under 19 years found." << std::endl;
+        return;
+    }
+
+    std::cout << "\nStudents under 19 years:" << std::endl;
+    std::cout << "=========================" << std::endl;
+    for (const auto& student : under19Students) {
+        printStudent(student);
+    }
+    std::cout << "Total: " << under19Students.size() << " students." << std::endl;
 }
 
 // Функция для парсинга JSON файла
@@ -118,7 +217,7 @@ void printFilteredStudents(const std::vector<Student>& students) {
     std::vector<Student> filtered = filterStudents(students);
 
     if (filtered.empty()) {
-        std::cout << "No students found matching the criteria." << std::endl;
+        std::cout << "No students found matching the criteria (age < 19 and grade > 4.0)." << std::endl;
         return;
     }
 
@@ -145,7 +244,8 @@ void printAllStudents(const std::vector<Student>& students) {
 }
 
 int main() {
-    std::cout << "Imperative" << std::endl;
+    std::cout << "Imperative Programming - Student Statistics" << std::endl;
+
     // Переменные для хранения данных
     std::vector<Student> students;
     std::string filename = "base.json";
@@ -159,10 +259,13 @@ int main() {
         return 1;
     }
 
-    // Выводим всех студентов (опционально)
-    // printAllStudents(students);
+    // Выводим всех студентов младше 19 лет
+    printStudentsUnder19(students);
 
-    // Выводим отфильтрованных студентов
+    // Выводим статистику по студентам младше 19 лет
+    printUnder19Statistics(students);
+
+    // Выводим отфильтрованных студентов (оригинальный критерий)
     printFilteredStudents(students);
 
     return 0;

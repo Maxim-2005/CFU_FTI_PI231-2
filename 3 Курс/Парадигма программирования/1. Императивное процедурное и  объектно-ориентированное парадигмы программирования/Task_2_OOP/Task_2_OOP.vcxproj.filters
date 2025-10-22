@@ -15,16 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Task_1\Task_1_Procedure.cpp">
+    <ClCompile Include="Task_2_OOP.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\Task_1\base.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\single_include\nlohmann\json.hpp">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

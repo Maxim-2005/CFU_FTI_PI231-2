@@ -1,0 +1,72 @@
+[
+  {
+    "id": 0,
+    "name": "Vasya",
+    "age": 19,
+    "average_grade": 4.5,
+    "gender": "male"
+  },
+  {
+    "id": 1,
+    "name": "Tanya",
+    "age": 23,
+    "average_grade": 3.8,
+    "gender": "female"
+  },
+  {
+    "id": 2,
+    "name": "Vanya",
+    "age": 17,
+    "average_grade": 5.0,
+    "gender": "male"
+  },
+  {
+    "id": 3,
+    "name": "Dima",
+    "age": 15,
+    "average_grade": 4.1,
+    "gender": "male"
+  },
+  {
+    "id": 4,
+    "name": "Vika",
+    "age": 14,
+    "average_grade": 3.5,
+    "gender": "female"
+  },
+  {
+    "id": 5,
+    "name": "Kolya",
+    "age": 28,
+    "average_grade": 2.7,
+    "gender": "male"
+  },
+  {
+    "id": 6,
+    "name": "Alina",
+    "age": 12,
+    "average_grade": 4.8,
+    "gender": "female"
+  },
+  {
+    "id": 7,
+    "name": "Danya",
+    "age": 18,
+    "average_grade": 4.0,
+    "gender": "male"
+  },
+  {
+    "id": 8,
+    "name": "Kirill",
+    "age": 21,
+    "average_grade": 3.7,
+    "gender": "male"
+  },
+  {
+    "id": 9,
+    "name": "Dasha",
+    "age": 13,
+    "average_grade": 4.4,
+    "gender": "female"
+  }
+]

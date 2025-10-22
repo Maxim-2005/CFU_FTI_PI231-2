@@ -20,11 +20,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Task_1\Task_1_Procedure.cpp">
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\single_include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Documents\MyPrograms\CFU_FTI_PI-231-2\3 Курс\Парадигма программирования\1. Императивное процедурное и  объектно-ориентированное парадигмы программирования\single_include</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Task_1\base.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\single_include\nlohmann\json.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -112,6 +115,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>D:\Documents\MyPrograms\CFU_FTI_PI-231-2\3 Курс\Парадигма программирования\1. Императивное процедурное и  объектно-ориентированное парадигмы программирования\single_include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

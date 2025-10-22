@@ -22,4 +22,9 @@
   <ItemGroup>
     <None Include="..\Task_1\base.json" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\single_include\nlohmann\json.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>

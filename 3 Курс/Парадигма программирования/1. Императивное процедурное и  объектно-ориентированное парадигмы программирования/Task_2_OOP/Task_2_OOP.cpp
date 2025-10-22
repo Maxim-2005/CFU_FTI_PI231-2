@@ -4,6 +4,7 @@
 #include <fstream>
 #include <nlohmann/json.hpp>
 #include <algorithm>
+#include <iomanip>
 
 using json = nlohmann::json;
 
@@ -16,7 +17,8 @@ private:
 public:
     // Конструктор
     Student(const std::string& name, int age, double averageGrade)
-        : name(name), age(age), averageGrade(averageGrade) {}
+        : name(name), age(age), averageGrade(averageGrade) {
+    }
 
     // Геттеры
     std::string getName() const { return name; }
@@ -31,6 +33,16 @@ public:
     // Метод для проверки возраста меньше 19
     bool isUnder19() const {
         return age < 19;
+    }
+
+    // Метод для проверки, начинается ли имя на букву A
+    bool nameStartsWithA() const {
+        return !name.empty() && (name[0] == 'A' || name[0] == 'a');
+    }
+
+    // Метод для проверки возраста меньше 19 и балла меньше 70
+    bool isUnder19AndGradeLessThan70() const {
+        return age < 19 && averageGrade < 70.0;
     }
 
     // Метод для вывода информации о студенте
@@ -69,11 +81,6 @@ public:
             else if (jsonData.is_object() && jsonData.contains("students")) {
                 // Формат 2: Объект с полем "students"
                 parseStudentArray(jsonData["students"]);
-            }
-            else if (jsonData.is_object()) {
-                // Формат 3: Прямой объект с данными студентов (редкий случай)
-                std::cerr << "Error: Unsupported JSON format - direct object" << std::endl;
-                return false;
             }
             else {
                 std::cerr << "Error: Unknown JSON format" << std::endl;
@@ -117,7 +124,7 @@ private:
                     continue;
                 }
 
-                if (averageGrade < 0 || averageGrade > 5.0) {
+                if (averageGrade < 0 || averageGrade > 100.0) {
                     std::cerr << "Warning: Invalid average grade for student " << name << ", skipping" << std::endl;
                     continue;
                 }
@@ -132,12 +139,12 @@ private:
     }
 
 public:
-    // Метод для фильтрации студентов по критериям (возраст < 19 и оценка > 4.0)
-    std::vector<Student> filterStudents() const {
+    // Метод для получения студентов, чьи имена начинаются на букву A
+    std::vector<Student> getStudentsWithNameStartingWithA() const {
         std::vector<Student> filteredStudents;
 
         for (const auto& student : students) {
-            if (student.meetsCriteria()) {
+            if (student.nameStartsWithA()) {
                 filteredStudents.push_back(student);
             }
         }
@@ -145,45 +152,45 @@ public:
         return filteredStudents;
     }
 
-    // Метод для получения студентов младше 19 лет
-    std::vector<Student> getStudentsUnder19() const {
-        std::vector<Student> under19Students;
+    // Метод для вычисления среднего балла студентов, чьи имена начинаются на букву A
+    double calculateAverageGradeForStudentsWithNameA() const {
+        auto filteredStudents = getStudentsWithNameStartingWithA();
 
-        for (const auto& student : students) {
-            if (student.isUnder19()) {
-                under19Students.push_back(student);
-            }
-        }
-
-        return under19Students;
-    }
-
-    // Метод для вычисления среднего балла студентов младше 19 лет
-    double calculateAverageGradeUnder19() const {
-        auto under19Students = getStudentsUnder19();
-
-        if (under19Students.empty()) {
+        if (filteredStudents.empty()) {
             return 0.0;
         }
 
         double sum = 0.0;
-        for (const auto& student : under19Students) {
+        for (const auto& student : filteredStudents) {
             sum += student.getAverageGrade();
         }
 
-        return sum / under19Students.size();
+        return sum / filteredStudents.size();
     }
 
-    // Метод для нахождения максимального балла среди студентов младше 19 лет
-    double findMaxGradeUnder19() const {
-        auto under19Students = getStudentsUnder19();
+    // Метод для получения студентов младше 19 лет с баллом меньше 70
+    std::vector<Student> getStudentsUnder19WithGradeLessThan70() const {
+        std::vector<Student> filteredStudents;
 
-        if (under19Students.empty()) {
+        for (const auto& student : students) {
+            if (student.isUnder19AndGradeLessThan70()) {
+                filteredStudents.push_back(student);
+            }
+        }
+
+        return filteredStudents;
+    }
+
+    // Метод для нахождения максимального балла среди студентов младше 19 лет с баллом меньше 70
+    double findMaxGradeUnder19AndLessThan70() const {
+        auto filteredStudents = getStudentsUnder19WithGradeLessThan70();
+
+        if (filteredStudents.empty()) {
             return 0.0;
         }
 
-        double maxGrade = under19Students[0].getAverageGrade();
-        for (const auto& student : under19Students) {
+        double maxGrade = filteredStudents[0].getAverageGrade();
+        for (const auto& student : filteredStudents) {
             if (student.getAverageGrade() > maxGrade) {
                 maxGrade = student.getAverageGrade();
             }
@@ -192,60 +199,58 @@ public:
         return maxGrade;
     }
 
-    // Метод для вывода статистики по студентам младше 19 лет
-    void displayUnder19Statistics() const {
-        auto under19Students = getStudentsUnder19();
+    // Метод для вывода среднего балла студентов с именами на букву A
+    void displayAverageGradeForStudentsWithNameA() const {
+        auto studentsWithA = getStudentsWithNameStartingWithA();
+        double averageGrade = calculateAverageGradeForStudentsWithNameA();
 
-        if (under19Students.empty()) {
-            std::cout << "No students under 19 years found." << std::endl;
+        std::cout << "\n=== Students with names starting with 'A' ===" << std::endl;
+
+        if (studentsWithA.empty()) {
+            std::cout << "No students found with names starting with 'A'." << std::endl;
             return;
         }
 
-        std::cout << "\n=== Statistics for students under 19 years ===" << std::endl;
-        std::cout << "Total students under 19: " << under19Students.size() << std::endl;
-
-        // Выводим всех студентов младше 19
-        std::cout << "\nStudents under 19 years:" << std::endl;
-        std::cout << "=========================" << std::endl;
-        for (const auto& student : under19Students) {
+        std::cout << "Students with names starting with 'A':" << std::endl;
+        std::cout << "======================================" << std::endl;
+        for (const auto& student : studentsWithA) {
             student.display();
         }
 
-        // Вычисляем и выводим статистику
-        double averageGrade = calculateAverageGradeUnder19();
-        double maxGrade = findMaxGradeUnder19();
+        std::cout << std::fixed << std::setprecision(2);
+        std::cout << "\nAverage grade of students with names starting with 'A': " << averageGrade << std::endl;
+        std::cout << "Total students: " << studentsWithA.size() << std::endl;
+    }
 
-        std::cout << "\nStatistics:" << std::endl;
-        std::cout << "===========" << std::endl;
-        std::cout << "Average grade of students under 19: " << averageGrade << std::endl;
-        std::cout << "Maximum grade among students under 19: " << maxGrade << std::endl;
+    // Метод для вывода максимального балла студентов младше 19 лет с баллом меньше 70
+    void displayMaxGradeUnder19AndLessThan70() const {
+        auto filteredStudents = getStudentsUnder19WithGradeLessThan70();
+        double maxGrade = findMaxGradeUnder19AndLessThan70();
 
-        // Находим студента с максимальным баллом
+        std::cout << "\n=== Students under 19 years with grade less than 70 ===" << std::endl;
+
+        if (filteredStudents.empty()) {
+            std::cout << "No students found under 19 years with grade less than 70." << std::endl;
+            return;
+        }
+
+        std::cout << "Students under 19 years with grade less than 70:" << std::endl;
+        std::cout << "================================================" << std::endl;
+        for (const auto& student : filteredStudents) {
+            student.display();
+        }
+
+        std::cout << std::fixed << std::setprecision(2);
+        std::cout << "\nMaximum grade among students under 19 years with grade less than 70: " << maxGrade << std::endl;
+        std::cout << "Total students: " << filteredStudents.size() << std::endl;
+
+        // Выводим студентов с максимальным баллом
         std::cout << "\nStudent(s) with maximum grade (" << maxGrade << "):" << std::endl;
-        for (const auto& student : under19Students) {
+        for (const auto& student : filteredStudents) {
             if (student.getAverageGrade() == maxGrade) {
                 student.display();
             }
         }
-    }
-
-    // Метод для вывода отфильтрованных студентов (оригинальный критерий)
-    void displayFilteredStudents() const {
-        auto filtered = filterStudents();
-
-        if (filtered.empty()) {
-            std::cout << "No students found matching the criteria (age < 19 and grade > 4.0)." << std::endl;
-            return;
-        }
-
-        std::cout << "\nStudents younger than 19 years with average grade above 4.0:" << std::endl;
-        std::cout << "=============================================================" << std::endl;
-
-        for (const auto& student : filtered) {
-            student.display();
-        }
-
-        std::cout << "Total found: " << filtered.size() << " students." << std::endl;
     }
 
     // Геттер для всех студентов (для тестирования)
@@ -260,12 +265,11 @@ int main() {
 
     // Парсим JSON файл
     if (parser.parseFromFile("base.json")) {
-        // Выводим статистику по студентам младше 19 лет
-        parser.displayUnder19Statistics();
+        // Выводим средний балл студентов с именами на букву A
+        parser.displayAverageGradeForStudentsWithNameA();
 
-        // Дополнительно: выводим студентов по оригинальному критерию
-        std::cout << "\n\n";
-        parser.displayFilteredStudents();
+        // Выводим максимальный балл студентов младше 19 лет с баллом меньше 70
+        parser.displayMaxGradeUnder19AndLessThan70();
     }
     else {
         std::cerr << "Failed to process file." << std::endl;
