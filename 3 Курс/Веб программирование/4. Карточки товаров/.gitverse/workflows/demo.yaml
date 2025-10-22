@@ -1,0 +1,13 @@
+name: Тест
+on:
+ push:
+jobs:
+  build-test:
+    name: Test context
+    runs-on: 'ubuntu-cloud-runner'
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - run: npm install
+      - run: npm test
+      - timeout-minutes: 3

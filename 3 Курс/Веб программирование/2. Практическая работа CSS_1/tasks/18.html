@@ -2,7 +2,6 @@
 <html>
     <head>
         <title>CSS Селекторс 2000</title>
-
         <link rel="stylesheet" type="text/css" href="../global.css">
     </head>
     <body>
@@ -11,11 +10,18 @@
 
         <main class="global-results">
             <style>
-                div:hover {
+                .global-scope {
+                    opacity: 0.75;
+                }
+                .global-scope:hover {
                     opacity: 1;
                 }
+                .global-scope:hover div:not(:hover) {
+                    opacity: 0.25;
+                }
                 div {
-                    opacity: 0.5;
+                    opacity: inherit;
+                    transition: opacity 0.3s ease;
                 }
             </style>
 

@@ -1,0 +1,13 @@
+{
+   "scripts": {
+      "test": "npm run test-html && npm run test-css",
+      "test-html": "mocha ./node_modules/html-tests/task-stub/test",
+      "test-css": "stylelint *.css"
+   },
+   "dependencies": {
+      "html-tests": "^2.0.0",
+      "mocha": "^11.7.2",
+      "should": "^13.2.3",
+      "stylelint": "^16.23.1"
+   }
+}

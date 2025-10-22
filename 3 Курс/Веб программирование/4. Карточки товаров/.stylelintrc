@@ -1,0 +1,13 @@
+{
+    "rules": {
+        "color-hex-length": "short",
+        "color-no-invalid-hex": true,
+
+        "number-max-precision": 2,
+
+        "block-no-empty": true,
+
+        "declaration-block-no-duplicate-properties": true,
+        "no-duplicate-selectors": true
+    }
+}
