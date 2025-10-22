@@ -15,11 +15,11 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Task_1_OOP.cpp">
+    <ClCompile Include="..\Task_1\Task_1_Procedure.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="base.json" />
+    <None Include="..\Task_1\base.json" />
   </ItemGroup>
 </Project>
