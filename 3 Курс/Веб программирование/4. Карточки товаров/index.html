@@ -1,10 +1,123 @@
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <meta charset="UTF-8">
-        <title>Задание 4</title>
-        <link rel="stylesheet" href="index.css">
-    </head>
-    <body>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 4 — Магазин</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<h1>Магазин товаров</h1>
+
+<input type="radio" name="view" id="tiles" checked class="view-input">
+<input type="radio" name="view" id="list" class="view-input">
+
+<div class="view-toggle">
+    <label for="tiles" class="btn">Плитка</label>
+    <label for="list" class="btn">Список</label>
+</div>
+
+<div class="container">
+
+    <div class="product">
+        <div class="img-box"><img src="https://c.dns-shop.ru/thumb/st1/fit/wm/0/0/5a08269aaad0ce817f359484b51a16dc/620fdbce740c626e41078b85ba9695649c4b133f78bbadbaf18658e09b374a2b.jpg.webp" alt="Palit GeForce RTX 5060 Ti Infinity 3"></div>
+        <a href="https://www.dns-shop.ru/product/5a2b972405f4d9cb/videokarta-palit-geforce-rtx-5060-ti-infinity-3-ne7506t019t1-gb2061s/" class="name" title="Palit GeForce RTX 5060 Dual">Palit GeForce RTX 5060 Dual</a>
+        <p class="category">Комплектующие для ПК</p>
+        <div class="rating">★★★★☆</div>
+        <p class="price">31 299 ₽</p>
+        <p class="desc">Видеокарта Palit GeForce RTX 5060 DUAL рассчитана на сборку и модернизацию игровых компьютеров. Модель оснащена графическим процессором GeForce RTX 5060. Потенциал видеочипа реализуют 8 ГБ памяти GDDR7. Видеоадаптер поддерживает разрешение до 7680x4320 (8K Ultra HD). </p>
+    </div>
+
+    <div class="product">
+        <div class="img-box"><img src="https://c.dns-shop.ru/thumb/st1/fit/wm/0/0/4dd3777880c0dc98da9ef9e71436965e/78c137ab73fe27968dc6d69420d40a6d19ba40d33c0376b296f112bf88aa9c7c.jpg.webp" alt="MSI GeForce RTX 5070 VENTUS 3X OC"></div>
+        <a href="https://www.dns-shop.ru/product/8f0eced0eaa9d582/videokarta-msi-geforce-rtx-5070-ventus-3x-oc-rtx-5070-12g-ventus-3x-oc/" class="name" title="MSI GeForce RTX 5070 VENTUS 3X OC">MSI GeForce RTX 5070 VENTUS 3X OC</a>
+        <p class="category">Комплектующие для ПК</p>
+        <div class="rating">★★★☆☆</div>
+        <p class="price">62 999 ₽</p>
+        <p class="desc">Игровая видеокарта MSI GeForce RTX 5070 VENTUS 3X OC без подсветки оснащена тремя кулерами и металлической пластиной для ускоренного охлаждения поверхности. 12 ГБ памяти GDDR7 хватает для одновременной работы четырех мониторов и просмотра видео в формате 8K Ultra HD без торможения и зависания. Поддержка трассировки лучей делает более естественной прорисовку света и теней для реалистичности игровой графики. </p>
+    </div>
+
+    <div class="product">
+        <div class="img-box"><img src="https://c.dns-shop.ru/thumb/st1/fit/wm/0/0/20463c017d4ef4cf35ca7cf4b461ac5d/b2a991b7d9a188776e2adcf56e753da463f1e188ab0b54cd9ec9b0bb85e57691.jpg.webp" alt="Palit GeForce RTX 5090 GameRock"></div>
+        <a href="https://www.dns-shop.ru/product/dab5d7dedf90d582/videokarta-palit-geforce-rtx-5090-gamerock-ne75090019r5-gb2020g/" class="name" title="Palit GeForce RTX 5090 GameRock">Palit GeForce RTX 5090 GameRock</a>
+        <p class="category">Комплектующие для ПК</p>
+        <div class="rating">★★★★★</div>
+        <p class="price">253 999 ₽</p>
+        <p class="desc">Видеокарта Palit GeForce RTX 5090 GameRock [NE75090019R5-GB2020G] будет актуальна, если вы собираете игровой системный блок для запуска наиболее требовательных видеоигр. Благодаря видеопамяти емкостью 32768 МБ и чипу с поддержкой частоты 2017 МГц эта модель справляется с обработкой передовой графики. На подключенные ТВ и мониторы она выводит изображение в разрешении до 8K Ultra HD включительно. Для подключения устройств вывода графики видеокарта предлагает видеовыходы 3x DisplayPort и HDMI.
+                        Видеокарта Palit GeForce RTX 5090 GameRock [NE75090019R5-GB2020G] за счет радиатора с испарительной камерой и 3 осевых вентиляторов всегда стабильно охлаждается. При низкой нагрузке ее кулеры не вращаются, позволяя достичь полного отсутствия шума. .</p>
+    </div>
+
+    <div class="product">
+        <div class="img-box"><img src="https://c.dns-shop.ru/thumb/st1/fit/wm/0/0/15d11f7de6605df549eb1edfb2b4e6ad/fa075840f3b14f836eccd5741cb41b5a75a1a4a6780ed0ac2d67437ddfd42a45.jpg.webp" alt="MSI GeForce RTX 5060 VENTUS 2X OC"></div>
+        <a href="https://www.dns-shop.ru/product/1ae78cdd169ed9cb/videokarta-msi-geforce-rtx-5060-ventus-2x-oc-rtx-5060-8g-ventus-2x-oc/#" class="name" title="MSI GeForce RTX 5060 VENTUS 2X OC">MSI GeForce RTX 5060 VENTUS 2X OC</a>
+        <p class="category">Комплектующие для ПК</p>
+        <div class="rating">★★☆☆☆</div>
+        <p class="price">33 999 ₽</p>
+        <p class="desc">Игровая видеокарта MSI GeForce RTX 5060 VENTUS 2X OC без подсветки оснащена двумя вентиляторами и металлической пластиной для ускоренного охлаждения поверхности. 8 ГБ памяти GDDR7 хватает для одновременной работы четырех мониторов и просмотра видео в формате 8K Ultra HD без торможения и зависания. Поддержка трассировки лучей делает более естественной прорисовку света и теней для реалистичности игровой графики.
+</p>
+    </div>
+
+    <div class="product">
+        <div class="img-box"><img src="https://c.dns-shop.ru/thumb/st4/fit/wm/0/0/ba4cb5237b3658653390b0f078da11f6/fc564f8c7d94ad9491ecc65804ca366f019a2413bf5ce145dc4b0ca0141d4de9.jpg.webp" alt="MSI GeForce RTX 3060 VENTUS 2X OC"></div>
+        <a href="https://www.dns-shop.ru/product/55cc9b9165b71b80/videokarta-msi-geforce-rtx-3060-ventus-2x-oc-lhr-rtx-3060-ventus-2x-12g-oc/" class="name" title="MSI GeForce RTX 3060 VENTUS 2X OC">MSI GeForce RTX 3060 VENTUS 2X OC</a>
+        <p class="category">Комплектующие для ПК</p>
+        <div class="rating">★★★★★</div>
+        <p class="price">30 999 ₽</p>
+        <p class="desc">Видеокарта MSI GeForce RTX 3060 VENTUS 2X OC (LHR) оборудована одним разъемом HDMI и тремя DisplayPort, что говорит о совместимости с любыми компьютерными устройствами, используемыми ныне. Это надежный компонент с подключением по PCI-E 4.0, разработанный для модернизации игрового ПК. Он содержит эффективную систему охлаждения с двумя вентиляторами. Они обеспечивают высокоэффективное охлаждение, создавая сильное статическое давление.
+                        Надежность конструкции видеокарты MSI GeForce RTX 3060 VENTUS 2X OC (LHR) обусловлена наличием прочной шлифованной пластины на обратной ее стороне. Стабильную работу этого компонента обеспечивает мощная система питания, взаимосвязанная с иными инженерными решениями. Он использует собственную память GDDR6 объемом 12 ГБ, поэтому гарантирует высокоскоростной отклик графики без ущерба остальным компонентам компьютерной системы. Модель с разрядностью шины 192 бит поддерживает штатную частоту на уровне 1320-1807 МГц. </p>
+    </div>
+
+    <div class="product">
+        <div class="img-box"><img src="https://c.dns-shop.ru/thumb/st1/fit/wm/0/0/3acb15ffe68de07dd7b66f9984819634/db739b5a6c51b029da7ef013ecbde3d76a2e59c86183895b18a284e4a25b37a4.jpg.webp" alt="KFA2 GeForce RTX 5070 ROCK(X) OC"></div>
+        <a href="https://www.dns-shop.ru/product/4a2223da02cfd9cb/videokarta-kfa2-geforce-rtx-5070-rockx-oc-57non7mdbuek/" class="name" title="KFA2 GeForce RTX 5070 ROCK(X) OC">KFA2 GeForce RTX 5070 ROCK(X) OC</a>
+        <p class="category">Комплектующие для ПК</p>
+        <div class="rating">★★★★☆</div>
+        <p class="price">62 999 ₽</p>
+        <p class="desc">Игровая видеокарта KFA2 GeForce RTX 5070 ROCK(X) OC с поддержкой трассировки лучей делает графику более реалистичной благодаря естественной прорисовке света и теней. Устройство с 12 ГБ памяти GDDR7 поддерживает видео в 8K-формате и одновременную работу с четырьмя мониторами. Видеокарта с тремя осевыми вентиляторами дополнена подсветкой.
+</p>
+    </div>
+
+    <div class="product">
+        <div class="img-box"><img src="https://c.dns-shop.ru/thumb/st1/fit/0/0/cca97aab06fbe73f3b9fc7063d75e488/cf3e8d029907e193c145df0400d7b430b696525645c47142a3be4d9f3b371397.png.webp" alt="MSI GeForce RTX 5070 Ti GAMING TRIO OC"></div>
+        <a href="https://www.dns-shop.ru/product/b3ea0184cef1d582/videokarta-msi-geforce-rtx-5080-gaming-trio-oc-rtx-5080-16g-gaming-trio-oc/" class="name" title="MSI GeForce RTX 5070 Ti GAMING TRIO OC">MSI GeForce RTX 5070 Ti GAMING TRIO OC</a>
+        <p class="category">Комплектующие для ПК</p>
+        <div class="rating">★★★★★</div>
+        <p class="price">109 999 ₽</p>
+        <p class="desc">GAMING TRIO — это сочетание бесстрашия и мощи. Она обеспечивает высокую производительность в играх и творчестве, дополняя это стильным дизайном и передовыми технологиями охлаждения. Это надежный инструмент для геймеров, которые стремятся к победе.
+</p>
+    </div>
+
+    <div class="product">
+        <div class="img-box"><img src="https://c.dns-shop.ru/thumb/st1/fit/wm/0/0/dd9c3cded4bdb859fa805306ddf05889/00b1b0a2b0a67e6ba9bd976ae20e1a1506bca0017521d302b004fcf6319bd059.jpg.webp" alt="MSI GeForce RTX 4060 VENTUS 2X WHITE OC"></div>
+        <a href="https://www.dns-shop.ru/product/697e6b357ec2ed20/videokarta-msi-geforce-rtx-4060-ventus-2x-white-oc-geforce-rtx-4060-ventus-2x-white-8g-oc/" class="name" title="MSI GeForce RTX 4060 VENTUS 2X WHITE OC">MSI GeForce RTX 4060 VENTUS 2X WHITE OC</a>
+        <p class="category">Комплектующие для ПК</p>
+        <div class="rating">★★★★☆</div>
+        <p class="price">32 999 ₽</p>
+        <p class="desc">Видеокарта MSI GeForce RTX 4060 VENTUS 2X WHITE OC [GeForce RTX 4060 VENTUS 2X WHITE 8G OC] – оснащение для игровых системных блоков. Благодаря длине 199 мм видеоадаптер совместим с компактными корпусами. Устройство занимает 2 слота расширения и рассчитано на работу в сингл-режиме. Производительность видеокарты превышает начальный уровень и достаточна для использования большинства видеоигр на средних или высоких настройках. Перегрев видеоадаптера при любых нагрузках исключают 2 малошумных вентилятора TORX FAN 4.0.
+                        Видеокарта MSI GeForce RTX 4060 VENTUS 2X WHITE OC [GeForce RTX 4060 VENTUS 2X WHITE 8G OC] оснащена графическим процессором GeForce RTX 4060 на базе микроархитектуры NVIDIA Ada Lovelace. GPU произведен по техпроцессу 5 нм и отличается невысоким энергопотреблением. Потенциал видеопроцессора раскрывают 8 ГБ памяти GDDR6. Максимальная потребляемая мощность видеокарты – 115 Вт.
+                        Модель оснащена 4 видеовыходами – HDMI и 3 DisplayPort. Максимальное количество одновременно подключаемых мониторов – 4. Видеокарта поддерживает разрешение до 7680x4320 (8K Ultra HD). </p>
+    </div>
+
+    <div class="product">
+        <div class="img-box"><img src="https://c.dns-shop.ru/thumb/st1/fit/wm/0/0/ed18505ea4a030357644d53611b7e25c/cbe9c7c28ccedd95374f9a12e96fac69fc7084dafb073c7228e432b5f4aa53b2.jpg.webp" alt="MSI GeForce RTX 5070 GAMING TRIO WHITE OC"></div>
+        <a href="https://www.dns-shop.ru/product/26621ab9eaa8d582/videokarta-msi-geforce-rtx-5070-gaming-trio-white-oc-rtx-5070-12g-gaming-trio-oc-white/" class="name" title="MSI GeForce RTX 5070 GAMING TRIO WHITE OC">MSI GeForce RTX 5070 GAMING TRIO WHITE OC</a>
+        <p class="category">Комплектующие для ПК</p>
+        <div class="rating">★★★☆☆</div>
+        <p class="price">74 999 ₽</p>
+        <p class="desc">Игровая видеокарта MSI GeForce RTX 5070 GAMING TRIO WHITE OC с подсветкой оснащена тремя кулерами и металлической пластиной для ускоренного охлаждения поверхности. 12 ГБ памяти GDDR7 хватает для одновременной работы четырех мониторов и просмотра видео в формате 8K Ultra HD без торможения и зависания. Поддержка трассировки лучей делает более естественной прорисовку света и теней для реалистичности игровой графики.
+</p>
+    </div>
+
+    <div class="product">
+        <div class="img-box"><img src="https://c.dns-shop.ru/thumb/st1/fit/0/0/b4a047918405b7bc80cb378f093241be/cd5cd4e4aca1b45c93da9f9aac1c0cce900992e108f7d2a95493b2db228274b0.jpg.webp" alt="KFA2 GeForce RTX 5070 Ti ROCK(X) 3FAN RGB BLACK"></div>
+        <a href="https://www.dns-shop.ru/product/cb1f669af7c5d9cb/videokarta-kfa2-geforce-rtx-5070-ti-rockx-3fan-rgb-black-57izn6mdbuek/" class="name" title="KFA2 GeForce RTX 5070 Ti ROCK(X) 3FAN RGB BLACK">KFA2 GeForce RTX 5070 Ti ROCK(X) 3FAN RGB BLACK</a>
+        <p class="category">Комплектующие для ПК</p>
+        <div class="rating">★★★★★</div>
+        <p class="price">89 999 ₽</p>
+        <p class="desc">Игровая видеокарта KFA2 GeForce RTX 5070Ti ROCK(X) 3FAN RGB BLACK с поддержкой трассировки лучей делает графику более реалистичной благодаря естественной прорисовке света и теней. Устройство с 16 ГБ памяти GDDR7 поддерживает видео в 8K-формате и одновременную работу с четырьмя мониторами. Видеокарта с тремя осевыми кулерами дополнена переключателем BIOS и подсветкой.
+</p>
+    </div>
+
+</div>
+</body>
 </html>
