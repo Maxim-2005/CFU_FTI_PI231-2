@@ -4,7 +4,7 @@
 #include <fstream>
 #include <nlohmann/json.hpp>
 #include <algorithm>
-#include <iomanip> // для std::fixed и std::setprecision
+#include <iomanip>
 
 using json = nlohmann::json;
 

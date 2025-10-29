@@ -160,7 +160,7 @@ body
 
 .article__add-text
 {
-    font-size: 0.8em;
+    font-size: 1em;
     text-indent: 2ch;
     font-style: italic;
     text-align: justify;
@@ -185,6 +185,7 @@ body
     font-style: italic;
     text-align: center;
     display: block;
+    column-span: all;
 }
 
 .article__image
@@ -209,8 +210,10 @@ body
 
 .article_columns_two > .article__content
 {
-    columns: 2;
+    columns: 4;
     column-gap: 15px;
+    column-rule: red 5px solid;
+    column-rule-color: red;
 }
 
 .article__content > p
