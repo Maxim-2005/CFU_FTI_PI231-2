@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "main": "phone-book.js",
+  "scripts": {
+    "test": "mocha --exit *.spec.js"
+  },
+  "dependencies": {
+    "mocha": "5.2.0"
+  }
+}
