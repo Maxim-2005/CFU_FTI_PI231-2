@@ -1,0 +1,23 @@
+name: Autograding Tests
+on:
+  - pull_request
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - id: test1
+        name: js-test
+        uses: https://gitverse.ru/actions/autograding-command-grader@v2
+        with:
+          test-name: js-test
+          setup-command: npm install
+          command: npm test
+          timeout: 5
+      - name: Autograding Reporter
+        uses: https://gitverse.ru/actions/autograding-grading-reporter@v2
+        env:
+          TEST1_RESULTS: ${{steps.test1.outputs.result}}
+        with:
+          runners: test1

@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "main": "emitter.js",
+  "scripts": {
+    "test": "mocha *.spec.js"
+  },
+  "dependencies": {
+    "mocha": "^11.7.5"
+  }
+}

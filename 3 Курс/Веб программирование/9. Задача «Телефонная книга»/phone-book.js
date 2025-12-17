@@ -5,31 +5,14 @@
  */
 let phoneBook = new Map();
 
-/**
- * Проверка формата телефона
- * @param {String} phone
- * @returns {Boolean}
- */
 function isValidPhone(phone) {
     return typeof phone === 'string' && /^\d{10}$/.test(phone);
 }
 
-/**
- * Форматирование телефона
- * @param {String} phone
- * @returns {String}
- */
 function formatPhone(phone) {
     return `+7 (${phone.slice(0, 3)}) ${phone.slice(3, 6)}-${phone.slice(6, 8)}-${phone.slice(8)}`;
 }
 
-/**
- * Добавление записи в телефонную книгу
- * @param {String} phone
- * @param {String} name
- * @param {String} email
- * @returns {Boolean}
- */
 exports.add = function (phone, name, email) {
     // Проверка обязательных параметров
     if (!isValidPhone(phone) || !name || typeof name !== 'string' || name.trim() === '') {
@@ -50,13 +33,6 @@ exports.add = function (phone, name, email) {
     return true;
 };
 
-/**
- * Обновление записи в телефонной книге
- * @param {String} phone
- * @param {String} name
- * @param {String} email
- * @returns {Boolean}
- */
 exports.update = function (phone, name, email) {
     // Проверка обязательных параметров
     if (!isValidPhone(phone) || !name || typeof name !== 'string' || name.trim() === '') {
@@ -76,11 +52,6 @@ exports.update = function (phone, name, email) {
     return true;
 };
 
-/**
- * Поиск записей по запросу в телефонной книге
- * @param {String} query
- * @returns {Array}
- */
 exports.find = function (query) {
     // Обработка пустого запроса
     if (!query || typeof query !== 'string' || query.trim() === '') {
@@ -118,33 +89,25 @@ exports.find = function (query) {
     });
 };
 
-/**
- * Удаление записей по запросу из телефонной книги
- * @param {String} query
- * @returns {Number}
- */
 exports.findAndRemove = function (query) {
+    // Проверка и нормализация запроса
     if (!query || typeof query !== 'string' || query.trim() === '') {
         return 0;
     }
     
-    const phonesToRemove = [];
-    
-    // Поиск записей для удаления
-    for (const [phone, record] of phoneBook.entries()) {
-        if (query === '*' || 
-            record.name.includes(query) || 
-            phone.includes(query) || 
-            (record.email && record.email.includes(query))) {
-            phonesToRemove.push(phone);
-        }
-    }
-    
-    // Удаление найденных записей
     let removedCount = 0;
-    for (const phone of phonesToRemove) {
-        if (phoneBook.delete(phone)) {
-            removedCount++;
+    const isWildcard = query.trim() === '*';
+    const normalizedQuery = query.trim();
+
+    for (const [phone, record] of phoneBook.entries()) {
+        if (isWildcard || 
+            record.name.includes(normalizedQuery) || 
+            phone.includes(normalizedQuery) || 
+            (record.email && record.email.includes(normalizedQuery))) {
+            
+            if (phoneBook.delete(phone)) {
+                removedCount++;
+            }
         }
     }
     

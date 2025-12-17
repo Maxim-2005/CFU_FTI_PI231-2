@@ -12,9 +12,19 @@
         <main class="global-results">
             <style>
                 hr{
+
                     border: 1px solid gray;
                 }
-                article > article{
+                article > article:nth-last-child(odd){
+                    background-color: red;
+                    border-top: 1px solid #000;
+                }
+                article > article:nth-last-child(even){
+                    background-color: yellow;
+                    border-top: 1px solid #000;
+                }
+                article > article:hover{
+                    background-color: skyblue;
                     border-top: 1px solid #000;
                 }
             </style>

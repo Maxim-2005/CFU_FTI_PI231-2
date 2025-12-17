@@ -24,7 +24,40 @@ h1 { text-align:center; }
 }
 .view-toggle .btn:hover { background: #f0f0f0; }
 
-.container { text-align: center; }
+.container { 
+    text-align: center; 
+}
+
+#tiles:checked ~ .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 50px;
+    justify-items: start;
+    margin: 0 auto;
+    max-width: 80%;
+}
+
+#tiles:checked ~ .container .product {
+    width: 100%;
+    margin: 0;
+}
+
+#list:checked ~ .container {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#list:checked ~ .container .product {
+    display: grid;
+    grid-template-columns: 200px 1fr 2fr;
+    gap: 15px;
+    width: 95%;
+    max-width: 1200px;
+    margin: 10px auto;
+    align-items: start;
+}
 
 .product {
     width: 220px;
@@ -37,97 +70,103 @@ h1 { text-align:center; }
     margin: 10px;
     box-shadow: 0 0 8px rgba(0,0,0,0.08);
     text-align: left;
-    transition: box-shadow .25s;
+    transition: box-shadow .25s, opacity .25s;
 }
-.product:hover { box-shadow: 0 0 12px rgba(255,0,0,0.25); }
+.product:hover { 
+    box-shadow: 0 0 12px rgba(255,0,0,0.25);
+}
 
-.img-box { height: 140px; text-align:center; line-height:140px; overflow:hidden; }
-.product img { max-height:100%; max-width:100%; vertical-align:bottom; transition: opacity .25s; }
-.product img:hover { opacity:0.7; }
+.img-box { 
+    height: 140px; 
+    text-align: center; 
+    line-height: 140px; 
+    overflow: hidden; 
+}
+.product img { 
+    max-height: 100%; 
+    max-width: 100%; 
+    vertical-align: bottom; 
+    transition: opacity .25s; 
+}
+
+.product:hover img,
+.product:hover .name {
+    opacity: 0.5;
+}
 
 .name {
-    display:block;
-    font-weight:bold;
-    color:#003366;
-    text-decoration:none;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
-    margin-top:8px;
+    display: block;
+    font-weight: bold;
+    color: #003366;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 8px;
     transition: color .2s;
 }
 
 .category {
-    color:#666;
-    font-size:13px;
-    margin:6px 0;
+    color: #666;
+    font-size: 13px;
+    margin: 6px 0;
     transition: color .2s;
 }
 
-.rating { color:orange; font-size:16px; margin-bottom:6px; }
-.price { color:#c00; font-weight:bold; margin-bottom:6px; }
-.desc { font-size:13px; color:#333; line-height:1.3em; }
-
-.price:hover {opacity:0.7;}
-
-/* Стили для плитки */
-#tiles:checked ~ .container {
-    text-align: center;
+.rating { color: orange; font-size: 16px; margin-bottom: 6px; }
+.price { 
+    color: #c00; 
+    font-weight: bold; 
+    margin-bottom: 6px; 
+    transition: opacity .25s;
 }
 
-#tiles:checked ~ .container .product {
-    display: inline-block;
-    width: 220px;
-    margin: 10px;
+.desc { 
+    font-size: 13px; 
+    color: #333; 
+    line-height: 1.3em; 
 }
 
-/* Стили для списка */
-#list:checked ~ .container {
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#list:checked ~ .container .product {
-    display: flex;
-    width: 95%;
-    max-width: 1200px;
-    margin: 10px auto;
-    align-items: flex-start;
-    gap: 15px;
-}
-
+/* Стили для списка с тремя колонками */
 #list:checked ~ .container .product .img-box {
-    flex-shrink: 0;
-    width: 200px;
+    width: 100%;
     height: 140px;
     display: flex;
     align-items: center;
     justify-content: center;
     line-height: normal;
+    grid-column: 1;
 }
 
 #list:checked ~ .container .product .content {
-    flex: 1;
-    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    grid-column: 2;
+}
+
+#list:checked ~ .container .product .desc {
+    grid-column: 3;
+    -webkit-line-clamp: 8;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+    align-self: start;
 }
 
 #list:checked ~ .container .product .name,
 #list:checked ~ .container .product .category,
 #list:checked ~ .container .product .rating,
-#list:checked ~ .container .product .price,
-#list:checked ~ .container .product .desc {
+#list:checked ~ .container .product .price {
     margin: 2px 0;
 }
 
-.desc {
-    font-size: 13px;
-    color: #333;
-    line-height: 1.3em;
+#list:checked ~ .container .product .name {
+    white-space: normal;
+    -webkit-line-clamp: 2;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    text-overflow: ellipsis;
 }
