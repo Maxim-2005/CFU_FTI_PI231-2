@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Котёл алхимика</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <button id="theme-toggle" class="theme-toggle-btn">
+            <span id="theme-icon">🌙</span>
+        </button>
+
+        <div class="alchemy-card">
+            <div class="alchemy-header">
+                <div class="header-column filter-column">
+                    <div class="filter-wrapper">
+                        <input type="text" id="filter-input" placeholder="Фильтр...">
+                        <span id="clear-filter" class="clear-btn" title="Очистить">✖</span>
+                    </div>
+                </div>
+                <div class="header-column result-column">
+                    <span id="result-display">Результат появится здесь...</span>
+                </div>
+            </div>
+            
+            <table class="alchemy-table">
+                <tbody>
+                    <tr>
+                        <td class="column">
+                            <ul id="available-list">
+                                <li data-element="earth">земля</li>
+                                <li data-element="air">воздух</li>
+                                <li data-element="dust">пыль</li>
+                                <li data-element="swamp">болото</li>
+                                <li data-element="energy">энергия</li>
+                                <li data-element="stone">камень</li>
+                                <li data-element="life">жизнь</li>
+                                <li data-element="milk">молоко</li>
+                                <li data-element="sourcream">сметанка</li>
+                                <li data-element="fire">огонь</li>
+                                <li data-element="water">вода</li>
+                            </ul>
+                        </td>
+                        <td class="column">
+                            <ul id="cauldron-list">
+                                </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="formulas.js"></script>
+    <script src="cauldron.js"></script>
+</body>
+</html>
